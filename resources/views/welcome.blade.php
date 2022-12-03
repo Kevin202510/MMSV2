@@ -24,7 +24,7 @@
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="w-100" src="{{ asset('landingpageassets/img/a2.png') }}" alt="Image">
+                    <img class="w-100" src="{{ asset('landingpageassets/img/panglima.png') }}" alt="Image">
                     <div class="carousel-caption">
                         <div class="container">
                             <div class="row justify-content-start">
