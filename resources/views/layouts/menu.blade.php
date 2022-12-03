@@ -21,7 +21,7 @@
         <li class="side-menus {{ Request::is('humidity*') ? 'active' : '' }}"><a class="nav-link" href="{{ route('Humidity') }}"><i class="fas fa-humidity"></i><span>Humidity Sensor</span></a></li>
         <li class="side-menus {{ Request::is('light*') ? 'active' : '' }}"><a class="nav-link" href="{{ route('Light') }}"><i class="fas fa-lightbulb-on"></i><span>Light Sensor</span></a></li>
         <li class="side-menus {{ Request::is('carbondioxide*') ? 'active' : '' }}"><a class="nav-link" href="{{ route('CarbonDioxide') }}"><i class="fas fa-sensor-smoke"></i><span>CO2 Sensor</span></a></li>
-        <li class="side-menus {{ Request::is('video*') ? 'active' : '' }}"><a class="nav-link" href="{{ route('Video') }}"><i class="fas fa-video"></i><span>Video Feed Mushroom House</span></a></li>
+        <!-- <li class="side-menus {{ Request::is('video*') ? 'active' : '' }}"><a class="nav-link" href="{{ route('Video') }}"><i class="fas fa-video"></i><span>Video Feed Mushroom House</span></a></li> -->
         <li class="menu-header">Sensors Settings</li>
         <li class="side-menus {{ Request::is('sensorsconfiguration') ? 'active' : '' }}"><a class="nav-link" href="{{ route('Sensor Configuration') }}"><i class="fas fa-cogs"></i><span>Sensors Configuration</span></a></li>
         <li class="side-menus {{ Request::is('sensorsconfigurationhistory') ? 'active' : '' }}"><a class="nav-link" href="{{ route('Sensor Configuration History') }}"><i class="fas fa-cogs"></i><span>Sensors Configuration History</span></a></li>

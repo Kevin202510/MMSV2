@@ -5,7 +5,22 @@ $(document).ready(function(){
   setInterval(function(){
     table();
     }, 5000);
-    
+    datePickerId.max = new Date().toISOString().split(".")[0];
+});
+
+$("body").on("click", ".btn-generate", async (e) =>
+    $("#generateReport").modal("show")
+);
+
+$("#datePickerId").focusout(function(){
+  
+  console.log($("#datePickerId").val());
+  var tzoffset = (new Date()).getTimezoneOffset() * 60000;
+  var localISOTime = (new Date(Date.now() - tzoffset)).toISOString().slice(0, -1);
+
+  datePickerId2.max = new Date().toISOString().split(".")[0];
+  datePickerId2.min = $("#datePickerId").val()
+
 });
 
 var co2Label = [];
@@ -85,47 +100,33 @@ $("#searchData").keyup(function(){
   }
 });
 
-$("#generateReport").click(function(){
+$("#generateReportss").click(function(){
+
+  var formData = {
+    datef: $("#datePickerId").val(),
+    datet: $("#datePickerId2").val(),
+  };
 
   $.ajax({
-    type: "GET",
-    url: "export-carbondioxide",
+    type: "POST",
+    url: "api/exportcarbondioxide/generatereport",
+    data: formData, // serializes the form's elements.
     dataType: "json",
     encode: true,
-    success: function(data)
-    {
-      swal.fire({
-                    position: "top-end",
-                    icon: "success",
-                    title: "Your work has been saved",
-                    showConfirmButton: false,
-                    timer: 1500,
-                    footer: "<a href>InnovaTech</a>",
-                });
-    }
   });
-  //   let daterange = {
-  //     daterange: $("#daterange").val(),
-  //   }
+  let success=0;
 
-  //   $.ajax({
-  //     type: "POST",
-  //     url: "export-temperature",
-  //     data: daterange, // serializes the form's elements.
-  //     dataType: "json",
-  //     encode: true,
-  //     success: function(data)
-  //     {
-  //         swal.fire({
-  //             position: "top-end",
-  //             icon: "success",
-  //             title: "Your work has been saved",
-  //             showConfirmButton: false,
-  //             timer: 1500,
-  //             footer: "<a href>InnovaTech</a>",
-  //         });
-  //     }
-  // });
+  if(success==0){
+    swal.fire({
+      position: "top-end",
+      icon: "success",
+      title: "Your Report is Downloading",
+      showConfirmButton: false,
+      timer: 1500,
+      footer: "<a href>CleverTech</a>",
+    });
+    $("#generateReport").modal("hide")
+  }
 });
 
 function fetchCarbonDioxide(){

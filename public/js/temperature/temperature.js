@@ -6,7 +6,7 @@ $(document).ready(function(){
       table();
       }, 5000);
 
-    datePickerId.max = new Date().toISOString().split("T")[0];
+    datePickerId.max = new Date().toISOString().split(".")[0];
 });
 
 $("body").on("click", ".btn-generate", async (e) =>
@@ -16,7 +16,11 @@ $("body").on("click", ".btn-generate", async (e) =>
 $("#datePickerId").focusout(function(){
   
   console.log($("#datePickerId").val());
-  datePickerId2.min = new Date($("#datePickerId").val()).toISOString().split("T")[0];
+  var tzoffset = (new Date()).getTimezoneOffset() * 60000;
+  var localISOTime = (new Date(Date.now() - tzoffset)).toISOString().slice(0, -1);
+
+  datePickerId2.max = new Date().toISOString().split(".")[0];
+  datePickerId2.min = $("#datePickerId").val()
 
 });
 
@@ -33,18 +37,20 @@ $("#generateReportss").click(function(){
     data: formData, // serializes the form's elements.
     dataType: "json",
     encode: true,
-    success: function(data)
-    {
-      swal.fire({
-                    position: "top-end",
-                    icon: "success",
-                    title: "Your work has been saved",
-                    showConfirmButton: false,
-                    timer: 1500,
-                    footer: "<a href>InnovaTech</a>",
-                });
-    }
   });
+  let success=0;
+
+  if(success==0){
+    swal.fire({
+      position: "top-end",
+      icon: "success",
+      title: "Your Report is Downloading",
+      showConfirmButton: false,
+      timer: 1500,
+      footer: "<a href>CleverTech</a>",
+    });
+    $("#generateReport").modal("hide")
+  }
 });
 
 $("#searchData").keyup(function(){

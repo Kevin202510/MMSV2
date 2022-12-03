@@ -22,11 +22,9 @@ class LightsController extends Controller
 
     public function export(Request $request)
     {
-        // $daterange = $request->daterange;
-        // $substring = strtok($daterange, "-");
-        // $substring1 = substr($daterange,13);
-        // dd($substring->format('M-d-Y'),$substring1->format('M-d-Y'));
-        $lights=Lights::all();
+        $datefrom = date('Y-m-d H:i:s',(strtotime ( '-1 day' , strtotime ( $request->datef) ) ));
+        $dateto = date('Y-m-d H:i:s', strtotime($request->datet . ' +1 day'));
+        $lights=Lights::whereBetween('created_at',[$datefrom,$dateto])->orderBy('created_at', 'ASC')->get();
         $lightsdata = PDF::loadView('lights.exportLights',compact('lights'));
         return $lightsdata->download('lights-data.pdf');
     }

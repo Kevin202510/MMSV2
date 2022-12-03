@@ -6,7 +6,7 @@
                 <div class="pull-left"><button type="button" class="close" data-dismiss="modal"><span class="fa fa-times"></button></div>
             </div>
             <div class="modal-body">
-                <form id="set-Model">
+                <form id="set-Model" enctype="multipart/form-data">
                     @csrf
                     <div class="form-row">
                     <input type="hidden" name="id" id="id">
@@ -100,9 +100,17 @@
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        <label for="exampleFormControlTextarea1">Description</label>
-                        <textarea class="form-control" id="description" name="description" style="height:100px;"></textarea>
+                    <div class="form-row">
+                        <div class="col-md-4 text-center"> 
+                            <label for="ItemPixStr">
+                                <img class="brand-image img-circle" src="{{ asset('img/userlogo.png') }}" width="200" height="180" />
+                            </label>
+                            <input type="file" style="display:none;" id="ItemPixStr" name="ItemPixStr" value="prod.png">
+                        </div>
+                        <div class="form-group col-md-8">
+                            <label for="exampleFormControlTextarea1">Description</label>
+                            <textarea class="form-control" id="description" name="description" style="height:100px;"></textarea>
+                        </div>
                     </div>
 
                     

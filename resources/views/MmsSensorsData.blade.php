@@ -34,7 +34,7 @@ class Sensors{
     
    }
 
-   include("../InnovatechDbCrudFunctions.php");
+   include("../CleverTechDbCrudFunctions.php");
 
 
    $temperaturelimitval;
@@ -55,7 +55,7 @@ class Sensors{
    $password=env('DB_PASSWORD');
    $dbname=env('DB_DATABASE');
    
-   $b = new InnovatechDbCrudFunctions($servername,$username,$password,$dbname);
+   $b = new CleverTechDbCrudFunctions($servername,$username,$password,$dbname);
    $b->select("sensorsconfigurations","*","isActive=1");
    $result = $b->sql;
    

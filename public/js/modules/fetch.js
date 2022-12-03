@@ -1,11 +1,3 @@
-/*
-/ This module is a personnal used of CleverTech.
-/ Develop by Tomas B. Pajarillaga Jr. RMT,RN,MSIT.
-/ QA by Thomas Emmanuel R. Pajarillaga III.
-/  *** Note: 
-/           fetch is not recommended for object parameters
-*/
-
 const request = async (url, params, method = "GET") => {
     const options = { method, headers: { "Content-Type": "application/json" } };
     if (params && method === "GET") {

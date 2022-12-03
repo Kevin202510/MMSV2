@@ -128,7 +128,7 @@ $(document).ready(function(){
                     title: "Your work has been saved",
                     showConfirmButton: false,
                     timer: 1500,
-                    footer: "<a href>InnovaTech</a>",
+                    footer: "<a href>CleverTech</a>",
                 });
 
                 $("#saveTemperatureSetting").hide();
@@ -178,7 +178,7 @@ $(document).ready(function(){
                     title: "Your work has been saved",
                     showConfirmButton: false,
                     timer: 1500,
-                    footer: "<a href>InnovaTech</a>",
+                    footer: "<a href>CleverTech</a>",
                 });
             }
         });
@@ -246,7 +246,7 @@ $(document).ready(function(){
                         title: "Your work has been saved",
                         showConfirmButton: false,
                         timer: 1500,
-                        footer: "<a href>InnovaTech</a>",
+                        footer: "<a href>CleverTech</a>",
                     });
       
                     $("#saveTemperatureSetting").hide();
@@ -293,7 +293,7 @@ $(document).ready(function(){
                         title: "Your work has been saved",
                         showConfirmButton: false,
                         timer: 1500,
-                        footer: "<a href>InnovaTech</a>",
+                        footer: "<a href>CleverTech</a>",
                     });
                 }
             });
@@ -359,7 +359,7 @@ $(document).ready(function(){
                     title: "Your work has been saved",
                     showConfirmButton: false,
                     timer: 1500,
-                    footer: "<a href>InnovaTech</a>",
+                    footer: "<a href>CleverTech</a>",
                 });
 
                 $("#savelightSetting").hide();
@@ -404,7 +404,7 @@ $(document).ready(function(){
                     title: "Your work has been saved",
                     showConfirmButton: false,
                     timer: 1500,
-                    footer: "<a href>InnovaTech</a>",
+                    footer: "<a href>CleverTech</a>",
                 });
             }
         });
@@ -471,7 +471,7 @@ $(document).ready(function(){
                   title: "Your work has been saved",
                   showConfirmButton: false,
                   timer: 1500,
-                  footer: "<a href>InnovaTech</a>",
+                  footer: "<a href>CleverTech</a>",
               });
 
               $("#savecarbondioxideSetting").hide();
@@ -516,7 +516,7 @@ $(document).ready(function(){
                   title: "Your work has been saved",
                   showConfirmButton: false,
                   timer: 1500,
-                  footer: "<a href>InnovaTech</a>",
+                  footer: "<a href>CleverTech</a>",
               });
           }
       });
@@ -582,7 +582,7 @@ $(document).ready(function(){
                   title: "Your work has been saved",
                   showConfirmButton: false,
                   timer: 1500,
-                  footer: "<a href>InnovaTech</a>",
+                  footer: "<a href>CleverTech</a>",
               });
 
               $("#savehumiditySetting").hide();

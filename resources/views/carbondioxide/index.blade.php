@@ -12,7 +12,7 @@
             <nav aria-label="breadcrumb">
               @include('layouts.breadcrum')
             </nav>
-            <!-- <button type="button" class="btn btn-primary" id="generateReport" >Generate Report <i class="far fa-file-invoice"></i></button> -->
+            <button type="button" class="btn btn-primary btn-generate">Generate Report <i class="far fa-file-invoice"></i></button>
             </div>
         </div>
         <div class="section-body">
@@ -70,6 +70,7 @@
             </div>
         </div>
     </section>
+    @include('carbondioxide/modal')
 @endsection
 
 @section('javascript')

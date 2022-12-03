@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
+    <title>Humidity Monitoring Report</title>
     <style>
                             /*!
                     * Bootstrap v4.0.0-alpha.3 (http://getbootstrap.com)
@@ -5791,7 +5791,6 @@
         <div class="card-header">
             <center>
                 <h5 class="card-title" style="color:white;">Humidity Monitoring Report</h5>
-                <p style="color:white;">Date(<span>Oct 01,2022 - Oct 21,2022</span>)</p>
             </center>
         </div>
             <div class="card-body">

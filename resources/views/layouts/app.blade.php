@@ -133,7 +133,7 @@
                         title: "Your work has been saved",
                         showConfirmButton: false,
                         timer: 1500,
-                        footer: "<a href>InnovaTech</a>",
+                        footer: "<a href>CleverTech</a>",
                     });
 
                     location.reload();

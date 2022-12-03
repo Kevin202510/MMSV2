@@ -128,6 +128,18 @@ Route::middleware('employeeOrAdmin')->group(function () {
     {
         Route::post('/generatereport', [TemperatureController::class,'export']);
     });
+    Route::prefix('/api/exporthumidity')->group(function() 
+    {
+        Route::post('/generatereport', [HumidityController::class,'export']);
+    });
+    Route::prefix('/api/exportcarbondioxide')->group(function() 
+    {
+        Route::post('/generatereport', [CarbonDioxideController::class,'export']);
+    });
+    Route::prefix('/api/exportlight')->group(function() 
+    {
+        Route::post('/generatereport', [LightsController::class,'export']);
+    });
 
     Route::prefix('/api/humidity')->group(function() 
     {

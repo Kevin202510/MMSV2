@@ -29,11 +29,9 @@ class CarbonDioxideController extends Controller
 
     public function export(Request $request)
     {
-        // $daterange = $request->daterange;
-        // $substring = strtok($daterange, "-");
-        // $substring1 = substr($daterange,13);
-        // dd($substring->format('M-d-Y'),$substring1->format('M-d-Y'));
-        $carbondioxide=Carbondioxide::all();
+        $datefrom = date('Y-m-d H:i:s',(strtotime ( '-1 day' , strtotime ( $request->datef) ) ));
+        $dateto = date('Y-m-d H:i:s', strtotime($request->datet . ' +1 day'));
+        $carbondioxide=Carbondioxide::whereBetween('created_at',[$datefrom,$dateto])->orderBy('created_at', 'ASC')->get();
         $carbondioxidedata = PDF::loadView('carbondioxide.exportCarbondioxide',compact('carbondioxide'));
         return $carbondioxidedata->download('carbondioxide-data.pdf');
     }

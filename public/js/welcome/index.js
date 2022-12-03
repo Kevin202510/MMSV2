@@ -14,7 +14,7 @@ $(document).ready(function(){
                                                 '</div>'+
                                                 '<div class="text-center p-4"  id="vari">'+
                                                     '<a class="d-block h5 mb-2" href="">'+itemData.configuration_name+'</a>'+
-                                                    '<span class="text-primary me-1">'+itemData.description+'</span>'+
+                                                    '<span class="text-primary me-1 text-break">'+itemData.description+'</span>'+
                                                 '</div>'+
                                             '</div>'+
                                         '</div>');

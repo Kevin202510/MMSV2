@@ -85,7 +85,7 @@ $(document).ready(function(){
                                             title: "Your work has been saved",
                                             showConfirmButton: false,
                                             timer: 1500,
-                                            footer: "<a href>InnovaTech</a>",
+                                            footer: "<a href>CleverTech</a>",
                                         });
                                         $('#changePasswordForm')[0].reset();
                                         $('#changePasswordModal').modal('hide');
@@ -101,7 +101,7 @@ $(document).ready(function(){
                                     icon: "error",
                                     title: "Password Does Not Match",
                                     showConfirmButton: true,
-                                    footer: "<a href>InnovaTech</a>",
+                                    footer: "<a href>CleverTech</a>",
                                 });
                             }
                         }else{
@@ -110,7 +110,7 @@ $(document).ready(function(){
                                 icon: "error",
                                 title: "Minimum Password Length is 8 character",
                                 showConfirmButton: true,
-                                footer: "<a href>InnovaTech</a>",
+                                footer: "<a href>CleverTech</a>",
                             });
                         }
                     }else{
@@ -119,7 +119,7 @@ $(document).ready(function(){
                             icon: "error",
                             title: "Incorrect Current Password",
                             showConfirmButton: true,
-                            footer: "<a href>InnovaTech</a>",
+                            footer: "<a href>CleverTech</a>",
                         });
                     }
                 }
