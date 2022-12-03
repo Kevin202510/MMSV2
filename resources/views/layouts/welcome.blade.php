@@ -54,7 +54,9 @@
 
         <nav class="navbar navbar-expand-lg navbar-light py-lg-0 px-lg-5 wow fadeIn" data-wow-delay="0.1s">
             <a href="{{ url('/') }}" class="navbar-brand ms-4 ms-lg-0">
-                <h1 class="fw-bold m-0 waitingForConnection" style="color:#b96c47;">M<span class="waitingForConnection2">M</span><span class="text-primary waitingForConnection3">S</span></h1>
+                <div class="waviy">
+                    <h1 class="fw-bold m-0 n1"><span class="n1" style="--i:1;">M</span><span class="n1" style="--i:2">M</span><span class="text-primary" style="--i:3">S</span></h1>
+                </div>
             </a>
             <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                 <span class="navbar-toggler-icon"></span>

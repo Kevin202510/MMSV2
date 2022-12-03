@@ -122,6 +122,34 @@
             opacity: 0;
         }
         }
+
+        .n1{
+            color:#b96c47;
+        }
+
+        .waviy {
+        position: relative;
+        -webkit-box-reflect: below -20px linear-gradient(transparent, rgba(0,0,0,.2));
+        font-size: 60px;
+        }
+        .waviy span {
+        position: relative;
+        display: inline-block;
+        text-transform: uppercase;
+        animation: waviy 1s infinite;
+        animation-delay: calc(1s * var(--i));
+        
+        }
+        @keyframes waviy {
+        0%,40%,100% {
+            transform: translateY(0)
+        }
+        20% {
+            transform: translateY(-20px)
+        }
+        }
+
+
         .waitingForConnection {
         animation: blinker 2s cubic-bezier(.5, 0, 1, 1) infinite alternate;  
         }
