@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
+use App\Models\User;
 use App\Models\Roles;
 use Illuminate\Http\Request;
 use Hash, Carbon\Carbon;
@@ -45,9 +45,18 @@ class UserController extends Controller
     {
 
       $profile = $request->file('pfImage');
-        $input['pfImage'] = time().'.'.$profile->getClientOriginalExtension();
         $destinationPath = public_path('/profiles');
-        $profile->move($destinationPath,$input['pfImage']);
+        $file = public_path('profiles/' . $profile->getClientOriginalName());
+        $input['pfImage'] = "";
+        // dd($profile->getClientOriginalName());
+        if(! file_exists($file)){
+          
+          $input['pfImage'] = time().'.'.$profile->getClientOriginalExtension();
+          $profile->move($destinationPath,$input['pfImage']);
+
+        }else{
+          $input['pfImage'] = $profile->getClientOriginalName();
+        }
 
 
         $updateuserdata = ["fname"=>$request->fname,
