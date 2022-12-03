@@ -65,7 +65,7 @@
 
 
     <!-- About Start -->
-    <div class="container-xxl py-5" style="background-color:#e1e4eb;">
+    <div class="container-xxl py-2" style="background-color:#e1e4eb;">
         <div class="container">
             <div class="row g-5 align-items-center">
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
@@ -86,7 +86,7 @@
         </div>
     </div>
 
-    <div class="container-xxl py-5" style="background-color:#e1e4eb;">
+    <div class="container-xxl py-2" style="background-color:#e1e4eb;">
         <div class="container">
             <div class="row g-5 align-items-center">
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
@@ -108,6 +108,12 @@
     </div>
     <!-- About End -->
 
+
+    <style>
+        #vari{
+            height:200px;
+        }
+    </style>
 
     <!-- Feature Start -->
     <!-- <div class="container-fluid my-5 py-6" style="background-color:#e1e4eb;">
@@ -146,574 +152,54 @@
     </div> -->
     <!-- Feature End -->
 
-    <!-- Feature Start -->
-    <div class="container-fluid my-5 py-6" style="background-color:#e1e4eb;">
-        <div class="container">
-            <div class="section-header text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
-                <h1 class="display-5 mb-3">Our Mushrooms Varieties</h1>
-                <!-- <p>Tempor ut dolore lorem kasd vero ipsum sit eirmod sit. Ipsum diam justo sed rebum vero dolor duo.</p> -->
-            </div>
-            <div class="row g-4 justify-content-center" id="mushroomvar">
-            </div>
-        </div>
-    </div>
-    <!-- Feature End -->
-
-
     <!-- Product Start -->
-    <!-- <div class="container-xxl py-5">
+    <div class="container-xxl py-5">
         <div class="container">
             <div class="row g-0 gx-5 align-items-end">
                 <div class="col-lg-6">
                     <div class="section-header text-start mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
-                        <h1 class="display-5 mb-3">Our Products</h1>
-                        <p>Tempor ut dolore lorem kasd vero ipsum sit eirmod sit. Ipsum diam justo sed rebum vero dolor duo.</p>
+                        <h1 class="display-5 mb-3">Our Mushrooms Varieties</h1>
+                        <!-- <p>Tempor ut dolore lorem kasd vero ipsum sit eirmod sit. Ipsum diam justo sed rebum vero dolor duo.</p> -->
                     </div>
-                </div>
-                <div class="col-lg-6 text-start text-lg-end wow slideInRight" data-wow-delay="0.1s">
-                    <ul class="nav nav-pills d-inline-flex justify-content-end mb-5">
-                        <li class="nav-item me-2">
-                            <a class="btn btn-outline-primary border-2 active" data-bs-toggle="pill" href="#tab-1">Vegetable</a>
-                        </li>
-                        <li class="nav-item me-2">
-                            <a class="btn btn-outline-primary border-2" data-bs-toggle="pill" href="#tab-2">Fruits </a>
-                        </li>
-                        <li class="nav-item me-0">
-                            <a class="btn btn-outline-primary border-2" data-bs-toggle="pill" href="#tab-3">Fresh</a>
-                        </li>
-                    </ul>
                 </div>
             </div>
             <div class="tab-content">
                 <div id="tab-1" class="tab-pane fade show p-0 active">
-                    <div class="row g-4">
-                        <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                            <div class="product-item">
-                                <div class="position-relative bg-light overflow-hidden">
-                                    <img class="img-fluid w-100" src="{{ asset('landingpageassets/img/product-1.jpg') }}" alt="">
-                                    <div class="bg-secondary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">New</div>
-                                </div>
-                                <div class="text-center p-4">
-                                    <a class="d-block h5 mb-2" href="">Fresh Tomato</a>
-                                    <span class="text-primary me-1">$19.00</span>
-                                    <span class="text-body text-decoration-line-through">$29.00</span>
-                                </div>
-                                <div class="d-flex border-top">
-                                    <small class="w-50 text-center border-end py-2">
-                                        <a class="text-body" href=""><i class="fa fa-eye text-primary me-2"></i>View detail</a>
-                                    </small>
-                                    <small class="w-50 text-center py-2">
-                                        <a class="text-body" href=""><i class="fa fa-shopping-bag text-primary me-2"></i>Add to cart</a>
-                                    </small>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                            <div class="product-item">
-                                <div class="position-relative bg-light overflow-hidden">
-                                    <img class="img-fluid w-100" src="{{ asset('landingpageassets/img/product-2.jpg') }}" alt="">
-                                    <div class="bg-secondary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">New</div>
-                                </div>
-                                <div class="text-center p-4">
-                                    <a class="d-block h5 mb-2" href="">Fresh Tomato</a>
-                                    <span class="text-primary me-1">$19.00</span>
-                                    <span class="text-body text-decoration-line-through">$29.00</span>
-                                </div>
-                                <div class="d-flex border-top">
-                                    <small class="w-50 text-center border-end py-2">
-                                        <a class="text-body" href=""><i class="fa fa-eye text-primary me-2"></i>View detail</a>
-                                    </small>
-                                    <small class="w-50 text-center py-2">
-                                        <a class="text-body" href=""><i class="fa fa-shopping-bag text-primary me-2"></i>Add to cart</a>
-                                    </small>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                            <div class="product-item">
-                                <div class="position-relative bg-light overflow-hidden">
-                                    <img class="img-fluid w-100" src="{{ asset('landingpageassets/img/product-3.jpg') }}" alt="">
-                                    <div class="bg-secondary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">New</div>
-                                </div>
-                                <div class="text-center p-4">
-                                    <a class="d-block h5 mb-2" href="">Fresh Tomato</a>
-                                    <span class="text-primary me-1">$19.00</span>
-                                    <span class="text-body text-decoration-line-through">$29.00</span>
-                                </div>
-                                <div class="d-flex border-top">
-                                    <small class="w-50 text-center border-end py-2">
-                                        <a class="text-body" href=""><i class="fa fa-eye text-primary me-2"></i>View detail</a>
-                                    </small>
-                                    <small class="w-50 text-center py-2">
-                                        <a class="text-body" href=""><i class="fa fa-shopping-bag text-primary me-2"></i>Add to cart</a>
-                                    </small>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
-                            <div class="product-item">
-                                <div class="position-relative bg-light overflow-hidden">
-                                    <img class="img-fluid w-100" src="{{ asset('landingpageassets/img/product-4.jpg') }}" alt="">
-                                    <div class="bg-secondary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">New</div>
-                                </div>
-                                <div class="text-center p-4">
-                                    <a class="d-block h5 mb-2" href="">Fresh Tomato</a>
-                                    <span class="text-primary me-1">$19.00</span>
-                                    <span class="text-body text-decoration-line-through">$29.00</span>
-                                </div>
-                                <div class="d-flex border-top">
-                                    <small class="w-50 text-center border-end py-2">
-                                        <a class="text-body" href=""><i class="fa fa-eye text-primary me-2"></i>View detail</a>
-                                    </small>
-                                    <small class="w-50 text-center py-2">
-                                        <a class="text-body" href=""><i class="fa fa-shopping-bag text-primary me-2"></i>Add to cart</a>
-                                    </small>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                            <div class="product-item">
-                                <div class="position-relative bg-light overflow-hidden">
-                                    <img class="img-fluid w-100" src="{{ asset('landingpageassets/img/product-5.jpg') }}" alt="">
-                                    <div class="bg-secondary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">New</div>
-                                </div>
-                                <div class="text-center p-4">
-                                    <a class="d-block h5 mb-2" href="">Fresh Tomato</a>
-                                    <span class="text-primary me-1">$19.00</span>
-                                    <span class="text-body text-decoration-line-through">$29.00</span>
-                                </div>
-                                <div class="d-flex border-top">
-                                    <small class="w-50 text-center border-end py-2">
-                                        <a class="text-body" href=""><i class="fa fa-eye text-primary me-2"></i>View detail</a>
-                                    </small>
-                                    <small class="w-50 text-center py-2">
-                                        <a class="text-body" href=""><i class="fa fa-shopping-bag text-primary me-2"></i>Add to cart</a>
-                                    </small>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                            <div class="product-item">
-                                <div class="position-relative bg-light overflow-hidden">
-                                    <img class="img-fluid w-100" src="{{ asset('landingpageassets/img/product-6.jpg') }}" alt="">
-                                    <div class="bg-secondary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">New</div>
-                                </div>
-                                <div class="text-center p-4">
-                                    <a class="d-block h5 mb-2" href="">Fresh Tomato</a>
-                                    <span class="text-primary me-1">$19.00</span>
-                                    <span class="text-body text-decoration-line-through">$29.00</span>
-                                </div>
-                                <div class="d-flex border-top">
-                                    <small class="w-50 text-center border-end py-2">
-                                        <a class="text-body" href=""><i class="fa fa-eye text-primary me-2"></i>View detail</a>
-                                    </small>
-                                    <small class="w-50 text-center py-2">
-                                        <a class="text-body" href=""><i class="fa fa-shopping-bag text-primary me-2"></i>Add to cart</a>
-                                    </small>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                            <div class="product-item">
-                                <div class="position-relative bg-light overflow-hidden">
-                                    <img class="img-fluid w-100" src="{{ asset('landingpageassets/img/product-7.jpg') }}" alt="">
-                                    <div class="bg-secondary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">New</div>
-                                </div>
-                                <div class="text-center p-4">
-                                    <a class="d-block h5 mb-2" href="">Fresh Tomato</a>
-                                    <span class="text-primary me-1">$19.00</span>
-                                    <span class="text-body text-decoration-line-through">$29.00</span>
-                                </div>
-                                <div class="d-flex border-top">
-                                    <small class="w-50 text-center border-end py-2">
-                                        <a class="text-body" href=""><i class="fa fa-eye text-primary me-2"></i>View detail</a>
-                                    </small>
-                                    <small class="w-50 text-center py-2">
-                                        <a class="text-body" href=""><i class="fa fa-shopping-bag text-primary me-2"></i>Add to cart</a>
-                                    </small>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
-                            <div class="product-item">
-                                <div class="position-relative bg-light overflow-hidden">
-                                    <img class="img-fluid w-100" src="{{ asset('landingpageassets/img/product-8.jpg') }}" alt="">
-                                    <div class="bg-secondary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">New</div>
-                                </div>
-                                <div class="text-center p-4">
-                                    <a class="d-block h5 mb-2" href="">Fresh Tomato</a>
-                                    <span class="text-primary me-1">$19.00</span>
-                                    <span class="text-body text-decoration-line-through">$29.00</span>
-                                </div>
-                                <div class="d-flex border-top">
-                                    <small class="w-50 text-center border-end py-2">
-                                        <a class="text-body" href=""><i class="fa fa-eye text-primary me-2"></i>View detail</a>
-                                    </small>
-                                    <small class="w-50 text-center py-2">
-                                        <a class="text-body" href=""><i class="fa fa-shopping-bag text-primary me-2"></i>Add to cart</a>
-                                    </small>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 text-center wow fadeInUp" data-wow-delay="0.1s">
-                            <a class="btn btn-primary rounded-pill py-3 px-5" href="">Browse More Products</a>
-                        </div>
-                    </div>
-                </div>
-                <div id="tab-2" class="tab-pane fade show p-0">
-                    <div class="row g-4">
-                        <div class="col-xl-3 col-lg-4 col-md-6">
-                            <div class="product-item">
-                                <div class="position-relative bg-light overflow-hidden">
-                                    <img class="img-fluid w-100" src="{{ asset('landingpageassets/img/product-1.jpg') }}" alt="">
-                                    <div class="bg-secondary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">New</div>
-                                </div>
-                                <div class="text-center p-4">
-                                    <a class="d-block h5 mb-2" href="">Fresh Tomato</a>
-                                    <span class="text-primary me-1">$19.00</span>
-                                    <span class="text-body text-decoration-line-through">$29.00</span>
-                                </div>
-                                <div class="d-flex border-top">
-                                    <small class="w-50 text-center border-end py-2">
-                                        <a class="text-body" href=""><i class="fa fa-eye text-primary me-2"></i>View detail</a>
-                                    </small>
-                                    <small class="w-50 text-center py-2">
-                                        <a class="text-body" href=""><i class="fa fa-shopping-bag text-primary me-2"></i>Add to cart</a>
-                                    </small>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-4 col-md-6">
-                            <div class="product-item">
-                                <div class="position-relative bg-light overflow-hidden">
-                                    <img class="img-fluid w-100" src="{{ asset('landingpageassets/img/product-2.jpg') }}" alt="">
-                                    <div class="bg-secondary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">New</div>
-                                </div>
-                                <div class="text-center p-4">
-                                    <a class="d-block h5 mb-2" href="">Fresh Tomato</a>
-                                    <span class="text-primary me-1">$19.00</span>
-                                    <span class="text-body text-decoration-line-through">$29.00</span>
-                                </div>
-                                <div class="d-flex border-top">
-                                    <small class="w-50 text-center border-end py-2">
-                                        <a class="text-body" href=""><i class="fa fa-eye text-primary me-2"></i>View detail</a>
-                                    </small>
-                                    <small class="w-50 text-center py-2">
-                                        <a class="text-body" href=""><i class="fa fa-shopping-bag text-primary me-2"></i>Add to cart</a>
-                                    </small>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-4 col-md-6">
-                            <div class="product-item">
-                                <div class="position-relative bg-light overflow-hidden">
-                                    <img class="img-fluid w-100" src="{{ asset('landingpageassets/img/product-3.jpg') }}" alt="">
-                                    <div class="bg-secondary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">New</div>
-                                </div>
-                                <div class="text-center p-4">
-                                    <a class="d-block h5 mb-2" href="">Fresh Tomato</a>
-                                    <span class="text-primary me-1">$19.00</span>
-                                    <span class="text-body text-decoration-line-through">$29.00</span>
-                                </div>
-                                <div class="d-flex border-top">
-                                    <small class="w-50 text-center border-end py-2">
-                                        <a class="text-body" href=""><i class="fa fa-eye text-primary me-2"></i>View detail</a>
-                                    </small>
-                                    <small class="w-50 text-center py-2">
-                                        <a class="text-body" href=""><i class="fa fa-shopping-bag text-primary me-2"></i>Add to cart</a>
-                                    </small>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-4 col-md-6">
-                            <div class="product-item">
-                                <div class="position-relative bg-light overflow-hidden">
-                                    <img class="img-fluid w-100" src="{{ asset('landingpageassets/img/product-4.jpg') }}" alt="">
-                                    <div class="bg-secondary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">New</div>
-                                </div>
-                                <div class="text-center p-4">
-                                    <a class="d-block h5 mb-2" href="">Fresh Tomato</a>
-                                    <span class="text-primary me-1">$19.00</span>
-                                    <span class="text-body text-decoration-line-through">$29.00</span>
-                                </div>
-                                <div class="d-flex border-top">
-                                    <small class="w-50 text-center border-end py-2">
-                                        <a class="text-body" href=""><i class="fa fa-eye text-primary me-2"></i>View detail</a>
-                                    </small>
-                                    <small class="w-50 text-center py-2">
-                                        <a class="text-body" href=""><i class="fa fa-shopping-bag text-primary me-2"></i>Add to cart</a>
-                                    </small>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-4 col-md-6">
-                            <div class="product-item">
-                                <div class="position-relative bg-light overflow-hidden">
-                                    <img class="img-fluid w-100" src="{{ asset('landingpageassets/img/product-5.jpg') }}" alt="">
-                                    <div class="bg-secondary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">New</div>
-                                </div>
-                                <div class="text-center p-4">
-                                    <a class="d-block h5 mb-2" href="">Fresh Tomato</a>
-                                    <span class="text-primary me-1">$19.00</span>
-                                    <span class="text-body text-decoration-line-through">$29.00</span>
-                                </div>
-                                <div class="d-flex border-top">
-                                    <small class="w-50 text-center border-end py-2">
-                                        <a class="text-body" href=""><i class="fa fa-eye text-primary me-2"></i>View detail</a>
-                                    </small>
-                                    <small class="w-50 text-center py-2">
-                                        <a class="text-body" href=""><i class="fa fa-shopping-bag text-primary me-2"></i>Add to cart</a>
-                                    </small>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-4 col-md-6">
-                            <div class="product-item">
-                                <div class="position-relative bg-light overflow-hidden">
-                                    <img class="img-fluid w-100" src="{{ asset('landingpageassets/img/product-6.jpg') }}" alt="">
-                                    <div class="bg-secondary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">New</div>
-                                </div>
-                                <div class="text-center p-4">
-                                    <a class="d-block h5 mb-2" href="">Fresh Tomato</a>
-                                    <span class="text-primary me-1">$19.00</span>
-                                    <span class="text-body text-decoration-line-through">$29.00</span>
-                                </div>
-                                <div class="d-flex border-top">
-                                    <small class="w-50 text-center border-end py-2">
-                                        <a class="text-body" href=""><i class="fa fa-eye text-primary me-2"></i>View detail</a>
-                                    </small>
-                                    <small class="w-50 text-center py-2">
-                                        <a class="text-body" href=""><i class="fa fa-shopping-bag text-primary me-2"></i>Add to cart</a>
-                                    </small>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-4 col-md-6">
-                            <div class="product-item">
-                                <div class="position-relative bg-light overflow-hidden">
-                                    <img class="img-fluid w-100" src="{{ asset('landingpageassets/img/product-7.jpg') }}" alt="">
-                                    <div class="bg-secondary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">New</div>
-                                </div>
-                                <div class="text-center p-4">
-                                    <a class="d-block h5 mb-2" href="">Fresh Tomato</a>
-                                    <span class="text-primary me-1">$19.00</span>
-                                    <span class="text-body text-decoration-line-through">$29.00</span>
-                                </div>
-                                <div class="d-flex border-top">
-                                    <small class="w-50 text-center border-end py-2">
-                                        <a class="text-body" href=""><i class="fa fa-eye text-primary me-2"></i>View detail</a>
-                                    </small>
-                                    <small class="w-50 text-center py-2">
-                                        <a class="text-body" href=""><i class="fa fa-shopping-bag text-primary me-2"></i>Add to cart</a>
-                                    </small>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-4 col-md-6">
-                            <div class="product-item">
-                                <div class="position-relative bg-light overflow-hidden">
-                                    <img class="img-fluid w-100" src="{{ asset('landingpageassets/img/product-8.jpg') }}" alt="">
-                                    <div class="bg-secondary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">New</div>
-                                </div>
-                                <div class="text-center p-4">
-                                    <a class="d-block h5 mb-2" href="">Fresh Tomato</a>
-                                    <span class="text-primary me-1">$19.00</span>
-                                    <span class="text-body text-decoration-line-through">$29.00</span>
-                                </div>
-                                <div class="d-flex border-top">
-                                    <small class="w-50 text-center border-end py-2">
-                                        <a class="text-body" href=""><i class="fa fa-eye text-primary me-2"></i>View detail</a>
-                                    </small>
-                                    <small class="w-50 text-center py-2">
-                                        <a class="text-body" href=""><i class="fa fa-shopping-bag text-primary me-2"></i>Add to cart</a>
-                                    </small>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 text-center">
-                            <a class="btn btn-primary rounded-pill py-3 px-5" href="">Browse More Products</a>
-                        </div>
-                    </div>
-                </div>
-                <div id="tab-3" class="tab-pane fade show p-0">
-                    <div class="row g-4">
-                        <div class="col-xl-3 col-lg-4 col-md-6">
-                            <div class="product-item">
-                                <div class="position-relative bg-light overflow-hidden">
-                                    <img class="img-fluid w-100" src="{{ asset('landingpageassets/img/product-1.jpg') }}" alt="">
-                                    <div class="bg-secondary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">New</div>
-                                </div>
-                                <div class="text-center p-4">
-                                    <a class="d-block h5 mb-2" href="">Fresh Tomato</a>
-                                    <span class="text-primary me-1">$19.00</span>
-                                    <span class="text-body text-decoration-line-through">$29.00</span>
-                                </div>
-                                <div class="d-flex border-top">
-                                    <small class="w-50 text-center border-end py-2">
-                                        <a class="text-body" href=""><i class="fa fa-eye text-primary me-2"></i>View detail</a>
-                                    </small>
-                                    <small class="w-50 text-center py-2">
-                                        <a class="text-body" href=""><i class="fa fa-shopping-bag text-primary me-2"></i>Add to cart</a>
-                                    </small>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-4 col-md-6">
-                            <div class="product-item">
-                                <div class="position-relative bg-light overflow-hidden">
-                                    <img class="img-fluid w-100" src="{{ asset('landingpageassets/img/product-2.jpg') }}" alt="">
-                                    <div class="bg-secondary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">New</div>
-                                </div>
-                                <div class="text-center p-4">
-                                    <a class="d-block h5 mb-2" href="">Fresh Tomato</a>
-                                    <span class="text-primary me-1">$19.00</span>
-                                    <span class="text-body text-decoration-line-through">$29.00</span>
-                                </div>
-                                <div class="d-flex border-top">
-                                    <small class="w-50 text-center border-end py-2">
-                                        <a class="text-body" href=""><i class="fa fa-eye text-primary me-2"></i>View detail</a>
-                                    </small>
-                                    <small class="w-50 text-center py-2">
-                                        <a class="text-body" href=""><i class="fa fa-shopping-bag text-primary me-2"></i>Add to cart</a>
-                                    </small>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-4 col-md-6">
-                            <div class="product-item">
-                                <div class="position-relative bg-light overflow-hidden">
-                                    <img class="img-fluid w-100" src="{{ asset('landingpageassets/img/product-3.jpg') }}" alt="">
-                                    <div class="bg-secondary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">New</div>
-                                </div>
-                                <div class="text-center p-4">
-                                    <a class="d-block h5 mb-2" href="">Fresh Tomato</a>
-                                    <span class="text-primary me-1">$19.00</span>
-                                    <span class="text-body text-decoration-line-through">$29.00</span>
-                                </div>
-                                <div class="d-flex border-top">
-                                    <small class="w-50 text-center border-end py-2">
-                                        <a class="text-body" href=""><i class="fa fa-eye text-primary me-2"></i>View detail</a>
-                                    </small>
-                                    <small class="w-50 text-center py-2">
-                                        <a class="text-body" href=""><i class="fa fa-shopping-bag text-primary me-2"></i>Add to cart</a>
-                                    </small>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-4 col-md-6">
-                            <div class="product-item">
-                                <div class="position-relative bg-light overflow-hidden">
-                                    <img class="img-fluid w-100" src="{{ asset('landingpageassets/img/product-4.jpg') }}" alt="">
-                                    <div class="bg-secondary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">New</div>
-                                </div>
-                                <div class="text-center p-4">
-                                    <a class="d-block h5 mb-2" href="">Fresh Tomato</a>
-                                    <span class="text-primary me-1">$19.00</span>
-                                    <span class="text-body text-decoration-line-through">$29.00</span>
-                                </div>
-                                <div class="d-flex border-top">
-                                    <small class="w-50 text-center border-end py-2">
-                                        <a class="text-body" href=""><i class="fa fa-eye text-primary me-2"></i>View detail</a>
-                                    </small>
-                                    <small class="w-50 text-center py-2">
-                                        <a class="text-body" href=""><i class="fa fa-shopping-bag text-primary me-2"></i>Add to cart</a>
-                                    </small>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-4 col-md-6">
-                            <div class="product-item">
-                                <div class="position-relative bg-light overflow-hidden">
-                                    <img class="img-fluid w-100" src="{{ asset('landingpageassets/img/product-5.jpg') }}" alt="">
-                                    <div class="bg-secondary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">New</div>
-                                </div>
-                                <div class="text-center p-4">
-                                    <a class="d-block h5 mb-2" href="">Fresh Tomato</a>
-                                    <span class="text-primary me-1">$19.00</span>
-                                    <span class="text-body text-decoration-line-through">$29.00</span>
-                                </div>
-                                <div class="d-flex border-top">
-                                    <small class="w-50 text-center border-end py-2">
-                                        <a class="text-body" href=""><i class="fa fa-eye text-primary me-2"></i>View detail</a>
-                                    </small>
-                                    <small class="w-50 text-center py-2">
-                                        <a class="text-body" href=""><i class="fa fa-shopping-bag text-primary me-2"></i>Add to cart</a>
-                                    </small>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-4 col-md-6">
-                            <div class="product-item">
-                                <div class="position-relative bg-light overflow-hidden">
-                                    <img class="img-fluid w-100" src="{{ asset('landingpageassets/img/product-6.jpg') }}" alt="">
-                                    <div class="bg-secondary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">New</div>
-                                </div>
-                                <div class="text-center p-4">
-                                    <a class="d-block h5 mb-2" href="">Fresh Tomato</a>
-                                    <span class="text-primary me-1">$19.00</span>
-                                    <span class="text-body text-decoration-line-through">$29.00</span>
-                                </div>
-                                <div class="d-flex border-top">
-                                    <small class="w-50 text-center border-end py-2">
-                                        <a class="text-body" href=""><i class="fa fa-eye text-primary me-2"></i>View detail</a>
-                                    </small>
-                                    <small class="w-50 text-center py-2">
-                                        <a class="text-body" href=""><i class="fa fa-shopping-bag text-primary me-2"></i>Add to cart</a>
-                                    </small>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-4 col-md-6">
-                            <div class="product-item">
-                                <div class="position-relative bg-light overflow-hidden">
-                                    <img class="img-fluid w-100" src="{{ asset('landingpageassets/img/product-7.jpg') }}" alt="">
-                                    <div class="bg-secondary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">New</div>
-                                </div>
-                                <div class="text-center p-4">
-                                    <a class="d-block h5 mb-2" href="">Fresh Tomato</a>
-                                    <span class="text-primary me-1">$19.00</span>
-                                    <span class="text-body text-decoration-line-through">$29.00</span>
-                                </div>
-                                <div class="d-flex border-top">
-                                    <small class="w-50 text-center border-end py-2">
-                                        <a class="text-body" href=""><i class="fa fa-eye text-primary me-2"></i>View detail</a>
-                                    </small>
-                                    <small class="w-50 text-center py-2">
-                                        <a class="text-body" href=""><i class="fa fa-shopping-bag text-primary me-2"></i>Add to cart</a>
-                                    </small>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-4 col-md-6">
-                            <div class="product-item">
-                                <div class="position-relative bg-light overflow-hidden">
-                                    <img class="img-fluid w-100" src="{{ asset('landingpageassets/img/product-8.jpg') }}" alt="">
-                                    <div class="bg-secondary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">New</div>
-                                </div>
-                                <div class="text-center p-4">
-                                    <a class="d-block h5 mb-2" href="">Fresh Tomato</a>
-                                    <span class="text-primary me-1">$19.00</span>
-                                    <span class="text-body text-decoration-line-through">$29.00</span>
-                                </div>
-                                <div class="d-flex border-top">
-                                    <small class="w-50 text-center border-end py-2">
-                                        <a class="text-body" href=""><i class="fa fa-eye text-primary me-2"></i>View detail</a>
-                                    </small>
-                                    <small class="w-50 text-center py-2">
-                                        <a class="text-body" href=""><i class="fa fa-shopping-bag text-primary me-2"></i>Add to cart</a>
-                                    </small>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 text-center">
-                            <a class="btn btn-primary rounded-pill py-3 px-5" href="">Browse More Products</a>
-                        </div>
+                    <div class="row g-4 justify-content-center" id="mushroomvar">
+                        
                     </div>
                 </div>
             </div>
         </div>
-    </div> -->
+    </div>
     <!-- Product End -->
+
+    <!-- Feature Start -->
+    <div class="container-fluid my-5 py-2" style="background-color:#e1e4eb;">
+        <div class="container">
+            <div class="section-header text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
+                <h1 class="display-5 mb-3">Our Location</h1>
+                <p><i class="fa fa-map-marker-alt me-2"></i> Brgy. Rio Chico General Tinio NE</p>
+            </div>
+            <div class="row g-4 justify-content-center">
+            <div class="card" style="background-color:#e1e4eb;">
+                <div class="card-body justify-content-center" style="background-color:#e1e4eb;">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d203.20521131124073!2d121.06437780409863!3d15.352883191719751!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x339725cc070c96a9%3A0xd7d36ea9f80403ff!2sBote%20Mushroom%20House!5e1!3m2!1sen!2sph!4v1670058015363!5m2!1sen!2sph" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <div class="card-footer">
+                <center><h4><strong>Bote Mushroom Farm</strong></h4></center>
+                <p class="text-center">
+                        Is one of the mushroom farms in the Municipality of General Tino province of Nueva Ecija, Philippines, located at
+                        Purok 4 Barangay Rio Chico. Bote Mushroom Farm aims to increase the production rates
+                        of mushrooms in the Municipality of General Tinio.Bote Mushroom house is composed of 1 room with a width of fifteen (15) meters
+                        and fifteen (15) meters in Height, they started it this year (2012)
+                    </p>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+    <!-- Feature End -->
 
 
     <!-- Firm Visit Start -->
