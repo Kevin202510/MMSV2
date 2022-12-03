@@ -62,7 +62,7 @@ $(document).ready(function(){
                 encode: true,
                 success: function(data)
                 {
-                    if(data==1){
+                    if(data){
                         if($("#newPassword").val().length>=8){
                             if($("#newPassword").val() == $("#confirmPassword").val()){
                                 event.preventDefault();

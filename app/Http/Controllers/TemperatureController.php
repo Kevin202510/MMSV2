@@ -41,7 +41,7 @@ class TemperatureController extends Controller
         // $temperature=Temperature::whereBetween('created_at',[$request->datef,$request->datet])->get();
         $temperature=Temperature::all();
         $temperaturedata = PDF::loadView('temperature.exportTemperature',compact('temperature'));
-        // return $temperaturedata->download('temperature-data.pdf');
+        return $temperaturedata->download('temperature-data.pdf');
     }
 
     /**

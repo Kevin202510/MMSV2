@@ -185,7 +185,8 @@ Route::middleware('employeeOrAdmin')->group(function () {
 
     Route::prefix('/api/users')->group(function() 
     {
-        Route::post('/{user}/updateProfile', [UserController::class,'updateProfile']); 
+        Route::post('/{user}/updateProfile', [UserController::class,'updateProfile']);
+        Route::post('/checkpass', [UserController::class,'makeHashPass']);  
         Route::put('/{user}/updatePassword', [UserController::class,'updatePassword']); 
     });
 });
