@@ -118,7 +118,7 @@ Route::middleware('employeeOrAdmin')->group(function () {
     Route::get('/carbondioxide', function () { return view('carbondioxide.index'); })->name('CarbonDioxide')->middleware('auth');
     Route::get('/soil', function () { return view('soil.index'); })->name('SoilMoisture')->middleware('auth');
     Route::get('/water', function () { return view('water.index'); })->name('WaterLevel')->middleware('auth');
-    // Route::get('/export-temperature/{tempgeneratedata}', [TemperatureController::class,'export')->name('Export')->middleware('auth');
+    Route::get('/export-temperature/{tempgeneratedata}', [TemperatureController::class,'export'])->name('Export')->middleware('auth');
     Route::get('/export-humidity', [HumidityController::class,'export'])->name('Export')->middleware('auth');
     Route::get('/export-carbondioxide', [CarbonDioxideController::class,'export'])->name('Export')->middleware('auth');
     Route::get('/export-lights', [LightsController::class,'export'])->name('Export')->middleware('auth');
