@@ -10,6 +10,7 @@ use App\Http\Controllers\SoilmoistureController;
 use App\Http\Controllers\TemperatureController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WaterlevelController;
+use App\Http\Controllers\CarbonDioxideController;
 
 /*
 |--------------------------------------------------------------------------
