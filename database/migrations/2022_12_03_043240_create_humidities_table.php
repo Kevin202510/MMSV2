@@ -15,7 +15,10 @@ class CreateHumiditiesTable extends Migration
     {
         Schema::create('humidities', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->double("humidity", 15, 8);
+            $table->integer("status")->default(0);
+            $table->softDeletes();
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
         });
     }
 

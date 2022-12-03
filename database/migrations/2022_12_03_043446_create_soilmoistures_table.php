@@ -15,7 +15,10 @@ class CreateSoilmoisturesTable extends Migration
     {
         Schema::create('soilmoistures', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->double("soilmoisture", 15, 8);
+            $table->integer("status")->default(0);
+            $table->softDeletes();
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
         });
     }
 

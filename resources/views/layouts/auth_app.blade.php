@@ -7,17 +7,31 @@
 
     <!-- General CSS Files -->
     <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css"/>
+    <link rel="icon" type="image/png" href="/img/favicons.ico">
     <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}">
 
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{ asset('web/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('web/css/components.css')}}">
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="{{ asset('assets/css/iziToast.min.css') }}">
-    <link href="{{ asset('assets/css/sweetalert.css') }}" rel="stylesheet" type="text/css"/>
+    <!-- <link href="{{ asset('assets/css/sweetalert.css') }}" rel="stylesheet" type="text/css"/> -->
     <link href="{{ asset('assets/css/select2.min.css') }}" rel="stylesheet" type="text/css"/>
+
+    <style>
+        #bodykoto{
+                background-image: url("../img/bg2.jpg");
+                height: 100%;
+                /* Center and scale the image nicely */
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+    </style>
+
 </head>
 
-<body>
+<body id="bodykoto">
 <div id="app">
     <section class="section">
         <div class="container mt-5">
@@ -49,5 +63,6 @@
 <script src="{{ asset('web/js/stisla.js') }}"></script>
 <script src="{{ asset('web/js/scripts.js') }}"></script>
 <!-- Page Specific JS File -->
+@yield('javascript')
 </body>
 </html>

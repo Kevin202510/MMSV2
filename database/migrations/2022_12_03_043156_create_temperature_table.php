@@ -13,9 +13,12 @@ class CreateTemperatureTable extends Migration
      */
     public function up()
     {
-        Schema::create('temperature', function (Blueprint $table) {
+        Schema::create('temperatures', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->double("temperature", 15, 8);
+            $table->integer("status")->default(0);
+            $table->softDeletes();
+            $table->timestampTz('created_at',0)->default(DB::raw('CURRENT_TIMESTAMP'));
         });
     }
 

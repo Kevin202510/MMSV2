@@ -1,15 +1,12 @@
 <aside id="sidebar-wrapper">
     <div class="sidebar-brand">
-        <img class="navbar-brand-full app-header-logo" src="{{ asset('img/logo.png') }}" width="65"
-             alt="Infyom Logo">
+    <img style="margin-top:0px;" src="{{ asset('img/LOGOS.gif') }}">
         <a href="{{ url('/') }}"></a>
+        </div>
+        <div class="sidebar-brand sidebar-brand-sm">
+        <a href="index.html">MMS</a>
     </div>
-    <div class="sidebar-brand sidebar-brand-sm">
-        <a href="{{ url('/') }}" class="small-sidebar-text">
-            <img class="navbar-brand-full" src="{{ asset('img/logo.png') }}" width="45px" alt=""/>
-        </a>
-    </div>
-    <ul class="sidebar-menu">
+    <ul class="sidebar-menu" style="margin-bottom:50px;margin-top:30px;">
         @include('layouts.menu')
     </ul>
 </aside>

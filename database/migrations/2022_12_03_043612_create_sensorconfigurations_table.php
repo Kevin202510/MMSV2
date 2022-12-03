@@ -13,9 +13,15 @@ class CreateSensorconfigurationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('sensorconfigurations', function (Blueprint $table) {
+        Schema::create('sensorsconfigurations', function (Blueprint $table) {
             $table->id();
+            $table->string("configuration_name");
+            $table->string("mushroom_image")->default("bg4.jpg");
+            $table->string("description");
+            $table->json("configuration_value")->comment("Preset Value For Sensors");
+            $table->integer("isActive")->default(0);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
