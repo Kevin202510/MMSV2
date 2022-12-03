@@ -15,7 +15,7 @@
                         <div class="container">
                             <div class="row justify-content-start">
                                 <div class="col-lg-8">
-                                    <h1 style="margin-left:25px;" class="display-4 mb-5 animated slideInDown">Mushroom Monitoring System</h1>
+                                    <h1 style="margin-left:25px;" class="display-4 mb-5 animated slideInDown blink_me">Mushroom Monitoring System</h1>
                                     <!-- <a href="" class="btn btn-primary rounded-pill py-sm-3 px-sm-5">Products</a>
                                     <a href="" class="btn btn-secondary rounded-pill py-sm-3 px-sm-5 ms-3">Services</a> -->
                                 </div>
@@ -29,7 +29,7 @@
                         <div class="container">
                             <div class="row justify-content-start">
                             <div class="col-lg-8">
-                                    <h1 style="margin-left:25px;" class="display-4 mb-5 animated slideInDown">Mushroom Monitoring System</h1>
+                                    <h1 style="margin-left:25px;" class="display-4 mb-5 animated slideInDown blink_me">Mushroom Monitoring System</h1>
                                 </div>
                             </div>
                         </div>
@@ -41,7 +41,7 @@
                         <div class="container">
                             <div class="row justify-content-start">
                             <div class="col-lg-8">
-                                    <h1 style="margin-left:25px;" class="display-4 mb-5 animated slideInDown">Mushroom Monitoring System</h1>
+                                    <h1 style="margin-left:25px;" class="display-4 mb-5 animated slideInDown blink_me">Mushroom Monitoring System</h1>
                                 </div>
                             </div>
                         </div>
@@ -113,6 +113,29 @@
         #vari{
             height:200px;
         }
+        .blink_mes {
+        animation: blinker 3s linear infinite;
+        }
+
+        @keyframes blinker {
+        50% {
+            opacity: 0;
+        }
+        }
+        .waitingForConnection {
+        animation: blinker 2s cubic-bezier(.5, 0, 1, 1) infinite alternate;  
+        }
+        @keyframes blinker { to { opacity: 0; } }
+
+        .waitingForConnection2 {
+        animation: blinker2 1.8s cubic-bezier(1, 0, 0, 1) infinite alternate;  
+        }
+        @keyframes blinker2 { to { opacity: 0; } }
+
+        .waitingForConnection3 {
+        animation: blinker3 1.6 ease-in-out infinite alternate;  
+        }
+        @keyframes blinker3 { to { opacity: 0; } }
     </style>
 
     <!-- Feature Start -->
@@ -158,7 +181,7 @@
             <div class="row g-0 gx-5 align-items-end">
                 <div class="col-lg-6">
                     <div class="section-header text-start mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
-                        <h1 class="display-5 mb-3">Our Mushrooms Varieties</h1>
+                        <h1 class="display-5 mb-3 blink_mes">Our Mushrooms Varieties</h1>
                         <!-- <p>Tempor ut dolore lorem kasd vero ipsum sit eirmod sit. Ipsum diam justo sed rebum vero dolor duo.</p> -->
                     </div>
                 </div>
@@ -178,7 +201,7 @@
     <div class="container-fluid my-5 py-2" style="background-color:#e1e4eb;">
         <div class="container">
             <div class="section-header text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
-                <h1 class="display-5 mb-3">Our Location</h1>
+                <h1 class="display-5 mb-3 blink_mes">Our Location</h1>
                 <p><i class="fa fa-map-marker-alt me-2"></i> Brgy. Rio Chico General Tinio NE</p>
             </div>
             <div class="row g-4 justify-content-center">
