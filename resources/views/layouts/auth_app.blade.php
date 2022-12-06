@@ -17,18 +17,6 @@
     <link rel="stylesheet" href="{{ asset('assets/css/iziToast.min.css') }}">
     <!-- <link href="{{ asset('assets/css/sweetalert.css') }}" rel="stylesheet" type="text/css"/> -->
     <link href="{{ asset('assets/css/select2.min.css') }}" rel="stylesheet" type="text/css"/>
-
-    <style>
-        #bodykoto{
-                background-image: url("../img/bg2.jpg");
-                height: 100%;
-                /* Center and scale the image nicely */
-                background-position: center;
-                background-repeat: no-repeat;
-                background-size: cover;
-            }
-    </style>
-
 </head>
 
 <body id="bodykoto">

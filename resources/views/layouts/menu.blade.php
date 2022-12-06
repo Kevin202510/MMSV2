@@ -40,6 +40,25 @@
         </ul>
         </li> -->
         <li class="side-menus {{ Request::is('users*') ? 'active' : '' }}"><a class="nav-link" href="{{ route('Users') }}"><i class="fas fa-users"></i><span>Users</span></a></li>
+        <li class="side-menus {{ Request::is('notifications*') ? 'active' : '' }}"><a class="nav-link" href="{{ route('Notifications') }}"><i class="fas fa-bell-on"></i><span>Notifications</span></a></li>
+        <!-- <li class="side-menus {{ Request::is('roles*') ? 'active' : '' }}"><a class="nav-link" href=" route('Roles') }}"><i class="fas fa-key"></i><span>Roles</span></a></li> -->
+        <!-- <li><a class="nav-link" href="{{ route('Temperature') }}"><i class="far fa-square"></i> <span>Light Sensor</span></a></li>
+        <li><a class="nav-link" href="{{ route('Temperature') }}"><i class="far fa-square"></i> <span>CO2 Sensor</span></a></li>
+        <li><a class="nav-link" href="{{ route('Temperature') }}"><i class="far fa-square"></i> <span>Soil Moisture Sensor</span></a></li>
+        <li><a class="nav-link" href="{{ route('Temperature') }}"><i class="far fa-square"></i> <span>Water Sprinkler Sensor</span></a></li> -->
+        @else
+         <!-- <li><a class="nav-link" href="{{ route('Temperature') }}"><i class="far fa-square"></i> <span>Water Level Sensor</span></a></li> -->
+
+         <li class="menu-header">Management</li>
+        <!-- <li class="nav-item dropdown">
+        <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Layout</span></a>
+        <ul class="dropdown-menu">
+            <li><a class="nav-link" href="layout-default.html">Default Layout</a></li>
+            <li><a class="nav-link" href="layout-transparent.html">Transparent Sidebar</a></li>
+            <li><a class="nav-link" href="layout-top-navigation.html">Top Navigation</a></li>
+        </ul>
+        </li> -->
+        <li class="side-menus {{ Request::is('notifications*') ? 'active' : '' }}"><a class="nav-link" href="{{ route('Notifications') }}"><i class="fas fa-bell-on"></i><span>Notifications</span></a></li>
         <!-- <li class="side-menus {{ Request::is('roles*') ? 'active' : '' }}"><a class="nav-link" href=" route('Roles') }}"><i class="fas fa-key"></i><span>Roles</span></a></li> -->
         <!-- <li><a class="nav-link" href="{{ route('Temperature') }}"><i class="far fa-square"></i> <span>Light Sensor</span></a></li>
         <li><a class="nav-link" href="{{ route('Temperature') }}"><i class="far fa-square"></i> <span>CO2 Sensor</span></a></li>

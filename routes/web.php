@@ -11,6 +11,7 @@ use App\Http\Controllers\TemperatureController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WaterlevelController;
 use App\Http\Controllers\CarbonDioxideController;
+use App\Http\Controllers\NotificationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -112,6 +113,7 @@ Route::middleware('admin')->group(function () {
 Route::middleware('employeeOrAdmin')->group(function () {
 
     Route::get('/sensorsconfiguration', function () { return view('sensors_configuration.index'); })->name('Sensor Configuration')->middleware('auth');
+    Route::get('/notifications', function () { return view('notifications.index'); })->name('Notifications')->middleware('auth');
     Route::get('/sensorsconfigurationhistory', function () { return view('sensors_configuration.history'); })->name('Sensor Configuration History')->middleware('auth');
     Route::get('/temperature', function () { return view('temperature.index'); })->name('Temperature')->middleware('auth');
     Route::get('/humidity', function () { return view('humidity.index'); })->name('Humidity')->middleware('auth');
@@ -124,6 +126,12 @@ Route::middleware('employeeOrAdmin')->group(function () {
     Route::get('/export-carbondioxide', [CarbonDioxideController::class,'export'])->name('Export')->middleware('auth');
     Route::get('/export-lights', [LightsController::class,'export'])->name('Export')->middleware('auth');
 
+    Route::prefix('/api/notifications')->group(function() 
+    {
+        Route::get('/', [NotificationController::class,'index']);
+        Route::post('/save', [NotificationController::class,'save']);
+    });
+    
     Route::prefix('/api/exporttemperature')->group(function() 
     {
         Route::post('/generatereport', [TemperatureController::class,'export']);

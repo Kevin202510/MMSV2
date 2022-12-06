@@ -2203,7 +2203,7 @@ h6 .badge {
     position: absolute;
     top: -26px;
     left: 34px;
-    content: '\f0d8';
+    content: '\f000';
     font-weight: 600;
     font-family: 'Font Awesome 5 Free';
     color: #fff;

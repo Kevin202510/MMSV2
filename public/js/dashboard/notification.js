@@ -1,4 +1,13 @@
 $(document).ready(function(){
+
+    $("body").on("click", "#clickmethis", () =>
+        redirectme()
+    );
+
+    function redirectme(){
+        url = "{{ route('Notification')}}";
+        document. location. href=url;
+    }
     
     getAllNotif();
 
@@ -16,6 +25,10 @@ $(document).ready(function(){
                 if(data[0].status==0){
     
                     $("#notificationContainer").append('<div class="dropdown-item dropdown-item-unread"><div class="dropdown-item-icon bg-danger text-white"><i class="fas fa-temperature-high"></i></div><div class="dropdown-item-desc">'+data[0].temperature+'°C Temperature is to High<div class="time text-primary">'+data[0].date + " | "+ data[0].time+'</div></div></div>');
+                    
+                }else if(data[0].status==2){
+    
+                    $("#notificationContainer").append('<div class="dropdown-item dropdown-item-unread" id="clickmethis"><div class="dropdown-item-icon bg-warning text-white"><i class="fas fa-temperature-high"></i></div><div class="dropdown-item-desc">'+data[0].temperature+'°C Temperature is to Low<div class="time text-primary">'+data[0].date + " | "+ data[0].time+'</div></div></div>');
                     
                 }
                 
