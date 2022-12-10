@@ -36,12 +36,12 @@
               <div class="col-lg-6">
                 <div class="card card-large-icons">
                   <div class="card-icon bg-primary text-white">
-                    <i class="fas fa-search"></i>
+                  <i class="fas fa-arrow-alt-square-down"></i>
                   </div>
                   <div class="card-body">
                     <h4>BackUp Database</h4>
                     <p>Search engine optimization settings, such as meta tags and social media.</p>
-                    <button type="button" id="backUPDB" class="btn btn-primary"> <i class="fas fa-database"></i> Reset DB</button>
+                    <button type="button" id="backUPDB" class="btn btn-primary"> <i class="fas fa-arrow-alt-square-down"></i> Reset DB</button>
                   </div>
                 </div>
               </div>
