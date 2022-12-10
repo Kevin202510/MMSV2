@@ -52,6 +52,9 @@
                     <a href="{{ url('lockscreen') }}" class="dropdown-item has-icon">
                         <i class="fas fa-power-off text-warning"></i> Lock Screen
                     </a>
+                    <a href="{{ route('System Setting') }}" class="dropdown-item has-icon">
+                        <i class="fas fa-cog text-warning"></i> System Setting
+                    </a>
                     <a href="{{ url('logout') }}" class="dropdown-item has-icon text-danger" id="logouti"
                    onclick="event.preventDefault(); localStorage.clear();  document.getElementById('logout-form').submit();">
                     <i class="fas fa-sign-out-alt"></i> Logout

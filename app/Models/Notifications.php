@@ -12,15 +12,18 @@ class Notifications extends Model
         'notification_description','date','time','status',
     ];
 
-    // protected $appends = [
-    //     'statusName',
-    // ];
+    protected $appends = [
+        'time',
+        'date',
+    ];
 
-    // public function getStatusNameAttribute()
-    // { 
-    //     $isUnread="Read";
-    //     if($this->status==0){
-    //         $isUnread = "Unread";
-    //     }
-    // }
+    public function getDateAttribute()
+    {
+        return $this->created_at? $this->created_at->format('M-d-Y'): null;
+    }
+
+    public function getTimeAttribute()
+    {
+        return $this->created_at? $this->created_at->format('g:i:s A'): null;
+    }
 }

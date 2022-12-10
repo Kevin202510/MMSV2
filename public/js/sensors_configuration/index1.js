@@ -94,6 +94,9 @@ const state = {
     ask: async () => {
         state.models = await fetch.translate(state.entity);
         console.log(state.models);
+        if(state.models.length==0){
+            $('#table-main').append('<tr><td colspan="5"><center>NO AVAILABLE DATA<center></td></tr>');
+        }
         if (state.models) {
             state.models.forEach((model) => fetch.writer(state.entity, model));
         }

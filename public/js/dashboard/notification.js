@@ -5,8 +5,7 @@ $(document).ready(function(){
     );
 
     function redirectme(){
-        url = "{{ route('Notification')}}";
-        document. location. href=url;
+        window.location.href = "notifications";
     }
     
     getAllNotif();
@@ -24,7 +23,7 @@ $(document).ready(function(){
                 $("#curtemp").html(data[0].temperature+" °C");
                 if(data[0].status==0){
     
-                    $("#notificationContainer").append('<div class="dropdown-item dropdown-item-unread"><div class="dropdown-item-icon bg-danger text-white"><i class="fas fa-temperature-high"></i></div><div class="dropdown-item-desc">'+data[0].temperature+'°C Temperature is to High<div class="time text-primary">'+data[0].date + " | "+ data[0].time+'</div></div></div>');
+                    $("#notificationContainer").append('<div class="dropdown-item dropdown-item-unread" id="clickmethis">><div class="dropdown-item-icon bg-danger text-white"><i class="fas fa-temperature-high"></i></div><div class="dropdown-item-desc">'+data[0].temperature+'°C Temperature is to High<div class="time text-primary">'+data[0].date + " | "+ data[0].time+'</div></div></div>');
                     
                 }else if(data[0].status==2){
     

@@ -1,6 +1,3 @@
-// Note !!!
-// fetch is not recommended for object parameters
-
 const request = async (url, params, method = "GET") => {
     const options = { method, headers: { "Content-Type": "application/json" } };
     if (params && method === "GET") {
@@ -24,7 +21,7 @@ const request = async (url, params, method = "GET") => {
                 showConfirmButton: false,
                 timer: 3000,
                 text: "The server responded with an unexpected status!",
-                footer: "<a href>NEUST PAPAYA OCP TEAM 1</a>",
+                footer: "<a href>CleverTech</a>",
             });
         } else if (response.status === 204) {
             return null;
@@ -37,17 +34,27 @@ const request = async (url, params, method = "GET") => {
         console.error(error);
     }
 };
-
 const objectToQueryString = (obj) => {
     let condition = Object.keys(obj)
         .map((key) => `${key}=${obj[key]}`)
         .join("&");
     return condition.replace(/&\s*$/, "");
 };
-
 const generateErrorResponse = (message) => {
     return { status: "error", message };
 };
+// const serialized = (params) => {
+//     if (typeof params === 'string' || params instanceof String) {
+//         return params;
+//     } else {
+//         var data = {};
+//         for (var i in params) {
+
+//             data[params[i]['name']] = params[i]['value']
+//         }
+//         return JSON.stringify(data);
+//     }
+// }
 
 /**
  * Directly query on database
@@ -57,7 +64,6 @@ const generateErrorResponse = (message) => {
  *
  *  @returns colletion of resources in json type
  */
-
 const ask = (url, params) => request(url, params);
 const find = (url) => request(url);
 const store = async (_entity, params, withMsge = true) => {
@@ -71,13 +77,12 @@ const store = async (_entity, params, withMsge = true) => {
                 title: "Your work has been saved",
                 showConfirmButton: false,
                 timer: 1500,
-                footer: "<a href>NEUST PAPAYA OCP TEAM 1</a>",
+                footer: "<a href>CleverTech</a>",
             });
         }
         return model;
     }
 };
-
 // direct URL
 const engrave = async (url, params, willEngrave = false) => {
     let method = willEngrave ? "POST" : `PUT`;
@@ -96,9 +101,14 @@ const engrave = async (url, params, willEngrave = false) => {
  *
  * @returns Updated Model
  */
-
 const update = async (_entity, pk, params, withMsge = true) => {
-    let url = `/${_entity.baseUrl}/${pluralize(_entity.name)}/${pk}/update`;
+    let entname;
+    if (_entity.name=="sensorsconfigurations/index") {
+        entname="sensorsconfiguration";
+    }else{
+        entname=_entity.name;
+    }
+    let url = `/${_entity.baseUrl}/${pluralize(entname)}/${pk}/update`;
     const model = await request(url, params, "PUT");
     if (model) {
         if (withMsge) {
@@ -108,7 +118,7 @@ const update = async (_entity, pk, params, withMsge = true) => {
                 title: "Your work has been saved",
                 showConfirmButton: false,
                 timer: 1500,
-                footer: "<a href>NEUST PAPAYA OCP TEAM 1</a>",
+                footer: "<a href>CleverTech</a>",
             });
         }
         return model;
@@ -137,12 +147,11 @@ const updateOrCreate = async (url, params, method) => {
             title: msge,
             showConfirmButton: false,
             timer: 1500,
-            footer: "<a href>NEUST PAPAYA OCP TEAM 1</a>",
+            footer: "<a href>CleverTech</a>",
         });
         return res;
     }
 };
-
 /**
  *
  * @param {'Table name'} _entity
@@ -152,8 +161,10 @@ const updateOrCreate = async (url, params, method) => {
  *
  * @returns Boolean
  */
-
 const destroy = async (_entity, pk, remove = true, params = null) => {
+
+    let entname;
+
     const { value: result } = await swal.fire({
         title: "Are you sure?",
         text: "You won't be able to revert this!",
@@ -162,24 +173,29 @@ const destroy = async (_entity, pk, remove = true, params = null) => {
         confirmButtonColor: "#3085d6",
         cancelButtonColor: "#d33",
         confirmButtonText: "Yes, delete it!",
-        footer: "<a href>NEUST PAPAYA OCP TEAM 1</a>",
+        footer: "<a href>CleverTech</a>",
     });
     if (result) {
         let key = params ? `?${objectToQueryString(params)}` : "";
+        if (_entity.name=="sensorsconfigurations/index") {
+            entname="sensorsconfiguration";
+        }else{
+            entname=_entity.name;
+        }
         let url = `/${_entity.baseUrl}/${pluralize(
-            _entity.name
+            entname
         )}/${pk}/destroy${key}`;
         const response = await request(url, "", "DELETE");
         if (response) {
             if (response.success) {
-                $(`#${_entity.name}-${pk}`).remove();
+                $(`#${entname}-${pk}`).remove();
                 swal.fire({
                     position: "top-end",
                     icon: "success",
                     title: "Your work has been saved",
                     showConfirmButton: false,
                     timer: 1500,
-                    footer: "<a href>NEUST PAPAYA OCP TEAM 1</a>",
+                    footer: "<a href>CleverTech</a>",
                 });
             }
 
@@ -191,12 +207,84 @@ const destroy = async (_entity, pk, remove = true, params = null) => {
     }
 };
 
+const recover = async (_entity, pk, remove = true, params = null) => {
+    const { value: result } = await swal.fire({
+        title: "Are you sure?",
+        text: "You want to recover this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, recover it!",
+        footer: "<a href>CleverTech</a>",
+    });
+    if (result) {
+        let key = params ? `?${objectToQueryString(params)}` : "";
+        let url = `/${_entity.baseUrl}/${pluralize(
+            _entity.name
+        )}/${pk}/recover${key}`;
+        const response = await request(url, "", "DELETE");
+        if (response) {
+            if (response.success) {
+
+                
+                $(`#user-${pk}`).remove();
+                swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Your work has been saved",
+                    showConfirmButton: false,
+                    timer: 1500,
+                    footer: "<a href>CleverTech</a>",
+                });
+            }
+
+            if (remove) $(`#model-${pk}`).remove();
+            return true;
+        }
+    } else {
+        return false;
+    }
+};
+
+const activate = async (_entity, pk, params, withMsge = true) => {
+
+    const { value: result } = await swal.fire({
+        title: "Are you sure?",
+        text: "You want to activate this!",
+        icon: "info",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, activate it!",
+        footer: "<a href>CleverTech</a>",
+    });
+    if (result) {
+
+        let url = `/${_entity.baseUrl}/${pluralize(_entity.name)}/${pk}/activate`;
+        const model = await request(url, params, "PUT");
+        if (model) {
+            if (withMsge) {
+                swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Your work has been saved",
+                    showConfirmButton: false,
+                    timer: 1500,
+                    footer: "<a href>CleverTech</a>",
+                });
+            }
+            return model;
+        }
+
+    }
+};
+
 /*  
 / Mapping
 / ------------
 /  it will authomatic map on the table
 */
-
 var entity = null;
 var attributes = null;
 var actions = null;
@@ -206,8 +294,11 @@ var baseUrl = null;
  * Will genarate url and query on database
  * @param {'model'} _entity
  * @param {'search key'} key
+ *
+ * key can be string or object
+ * if object it must be in json type
+ *  @returns collection of models in json type
  */
-
 const translate = async (_entity, key = "") => {
     entity = _entity.name;
     baseUrl = _entity.baseUrl;
@@ -232,7 +323,7 @@ const writer = (_entity, model) => {
     // console.log(model)
     attributes = _entity.attributes;
     actions = _entity.actions;
-    var index = $("#table-main tr").length;
+    var index = $("#table-mains tr").length;
     index =
         $(`#model-${model.id}`).length == 0
             ? index
@@ -252,15 +343,14 @@ const writer = (_entity, model) => {
             $("<td>", {class: "text-wrap", html: attriMap.get(attri) }).appendTo(tr)
         }
     });
-
     /**
      * Check if actions is available the append action in thead
      */
-
     let td = $("<td>");
     let group = $("<div>", { class: "btn-group" });
     Object.keys(actions).map((key) => {
         let icons = actions[key][0];
+        // alert(icons);
         if (actions[key][0].length == 3) {
             icons =
                 model[actions[key][0][0][0]] == actions[key][0][0][1]
@@ -335,7 +425,7 @@ const writer = (_entity, model) => {
     group.appendTo(td);
     td.appendTo(tr);
     if ($(`#model-${model.id}`).length == 0) {
-        $("#table-main").append(tr);
+        $("#table-mains").append(tr);
     } else {
         $(`#model-${model.id}`).replaceWith(tr);
     }
@@ -365,11 +455,9 @@ const writerUser = (_entity, model) => {
             $("<td>", {class: "text-wrap", html: attriMap.get(attri) }).appendTo(tr)
         }
     });
-
     /**
      * Check if actions is available the append action in thead
      */
-
     let td = $("<td>");
     let group = $("<div>", { class: "btn-group" });
     Object.keys(actions).map((key) => {
@@ -459,25 +547,19 @@ const writerUser = (_entity, model) => {
  *
  * reset the modal
  * Button with id=engrave will reset data-id to 0
- * modal title base to entity name
  */
-
-const showModal = (name) => {
-
-    let newmodalname = name.toUpperCase();
+const showModal = () => {
     $("#set-Model").trigger("reset");
-    $("#modal-title").html("Add " + newmodalname);
+    $("#modal-title").html("Add New");
     $("#engrave").attr("data-id", 0);
     $("#modal-main").modal("show");
 };
-
 
 /**
  * Show modal and map data accoording to name type.
  *
  * @param {'Resources'} model
  */
-
 const showOnModal = (model) => {
     $("#set-model").trigger("reset");
     $("#modal-title").html(`Update`);
@@ -487,7 +569,23 @@ const showOnModal = (model) => {
             if (typeof model[key] == "boolean") {
                 $(`[name='${key}']`).val(model[key] ? 1 : 0);
             } else {
-                $(`[name='${key}']`).val(model[key]);
+                $(`[name='${key}']`).val(model[key]).removeAttr("disabled");
+            }
+        }
+    });
+    $("#modal-main").modal("show");
+};
+
+const viewOnModal = (model) => {
+    $("#set-model").trigger("reset");
+    $("#modal-title").html(`User Information`);
+    // console.log(model)
+    Object.keys(model).map((key) => {
+        if ($(`[name='${key}']`).length !== 0 && key != "avatar") {
+            if (typeof model[key] == "boolean") {
+                $(`[name='${key}']`).val(model[key] ? 1 : 0);
+            } else {
+                $(`[name='${key}']`).val(model[key]).attr("disabled","disabled") ;
             }
         }
     });
@@ -513,7 +611,6 @@ const pluralize = (word) =>
         : withEs.indexOf(word.substr(-1)) !== -1
         ? `${word}es`
         : `${word}s`;
-
 /**
  * regular expression:
  * The / mark the beginning and end of the regular expression
@@ -542,9 +639,7 @@ const option_list = async (
     if (!required) {
         $(`#${_model}-id`).append($("<option>", { value: null, text: null }));
     }
-
     // alert(_model);
-
     models.forEach((model) => {
         let title = "";
         // alert(model.id);
@@ -563,7 +658,6 @@ const option_list = async (
     });
     return models;
 };
-
 export default {
     ask,
     find,
@@ -572,10 +666,13 @@ export default {
     engrave,
     updateOrCreate,
     destroy,
+    recover,
     writer,
     writerUser,
     translate,
     showModal,
     showOnModal,
+    viewOnModal,
     option_list,
+    activate,
 };

@@ -12,6 +12,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\WaterlevelController;
 use App\Http\Controllers\CarbonDioxideController;
 use App\Http\Controllers\NotificationController;
+use App\Http\Controllers\GlobalController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,7 +48,7 @@ Route::prefix('/api/sensorsconfigurationss')->group(function()
 });
 
 Route::middleware('admin')->group(function () {
-
+    Route::get('/our_backup_database', [GlobalController::class,'our_backup_database'])->name('our_backup_database');
     Route::get('/users', function () { return view('users.index'); })->name('Users')->middleware('auth');
     Route::get('/roles', function () { return view('roles.index'); })->name('Roles')->middleware('auth');
     Route::get('/export', [UserController::class,'export'])->name('Export')->middleware('auth');
@@ -89,6 +90,7 @@ Route::middleware('admin')->group(function () {
     Route::prefix('/api/users')->group(function() 
     {
         Route::get('/', [UserController::class,'index']);
+        Route::get('/deleteds', [UserController::class,'index1']);
         Route::get('/list', [UserController::class,'list']); 
         Route::post('/save', [UserController::class,'save']);
         Route::post('/checkpass', [UserController::class,'makeHashPass']); 
@@ -99,6 +101,7 @@ Route::middleware('admin')->group(function () {
         Route::put('/{user}/updatestatus', [UserController::class,'updatestatus']);
         Route::put('/{user}/updatestatusDisapproved', [UserController::class,'updatestatusDisapproved']);
         Route::delete('/{user}/destroy', [UserController::class,'destroy']);  
+        Route::delete('/deleteds/{user}/recover', [UserController::class,'recover']);
     });
 
     Route::prefix('/api/roles')->group(function() 
@@ -125,6 +128,13 @@ Route::middleware('employeeOrAdmin')->group(function () {
     Route::get('/export-humidity', [HumidityController::class,'export'])->name('Export')->middleware('auth');
     Route::get('/export-carbondioxide', [CarbonDioxideController::class,'export'])->name('Export')->middleware('auth');
     Route::get('/export-lights', [LightsController::class,'export'])->name('Export')->middleware('auth');
+    Route::get('/system-setting', function () { return view('SystemConfiguration.index'); })->name('System Setting')->middleware('auth');
+
+    Route::prefix('/api/system-configurations')->group(function() 
+    {
+        Route::get('/', [GlobalController::class,'index']);
+        Route::post('/resetDB', [GlobalController::class,'resetDB']);
+    });
 
     Route::prefix('/api/notifications')->group(function() 
     {

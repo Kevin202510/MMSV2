@@ -1,0 +1,262 @@
+#include "MQ135.h"
+#include "DHT.h"
+#include <SPI.h>
+#include <Ethernet.h>
+byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED }; //Setting MAC Address
+
+#define DHTPIN 2
+#define RLOAD 22.0
+#define DHTTYPE DHT11
+
+DHT dht(DHTPIN,DHTTYPE);
+MQ135 gasSensor = MQ135(A2);
+
+int relay = 8;
+int relays = 7;
+volatile byte relayState = LOW;
+int gassensorPin = A2;
+int gassensorValue = 0;
+int soil_sensorPin = A0; 
+const int pResistor = A1; // Photoresistor at Arduino analog pin A0
+const int ledPin=9;       // Led pin at Arduino pin 9
+
+int soil_sensorValue = 0;  
+float humidityData = 0; 
+float temperatureData = 0; 
+int limit = 1000; 
+int photovalue = 0; 
+float co2amount = 0; 
+
+char server[] = "192.168.2.101";
+IPAddress ip(192,168,2,103); 
+EthernetClient client; 
+
+String dataToReview;
+
+
+String temperaturePostName = "temperature=";
+int temperaturestatValue;
+
+String humidityPostName = "& humidity=";
+int humiditystatValue;
+
+String lightPostName = "& lightAmount=";
+int lightstatValue;
+
+String co2PostName = "& co2Amount=";
+int co2statValue;
+
+String dataToAddDBreview;
+
+double temperaturelimitval=0;
+double temperaturemaxval=0;
+int temperaturestatusval;
+
+double humidityLimitval=0;
+double humidityMaxval=0;
+int humidityStatusval;
+
+double lightLimitval=0;
+double lightMaxval=0;
+int lightStatusval;
+
+double co2limitval=0;
+double co2maxval=0;
+int co2statusval=0;
+
+/* Setup for Ethernet and RFID */
+
+void setup() {
+  Serial.begin(9600);
+  dht.begin();
+
+  pinMode(ledPin, OUTPUT);  // Set lepPin - 9 pin as an output
+ pinMode(pResistor, INPUT);// Set pResistor - A1 pin as an input (optional)
+  pinMode(gassensorPin, INPUT);
+  pinMode(relay, OUTPUT);
+  pinMode(relays, OUTPUT);
+  if (Ethernet.begin(mac) == 0) {
+  Serial.println("Failed to configure Ethernet using DHCP");
+  Ethernet.begin(mac, ip);
+  } 
+  delay(1000);
+}
+//------------------------------------------------------------------------------
+
+
+/* Infinite Loop */
+void loop(){
+  sendDataToDB(); 
+  delay(10000); // interval
+}
+
+void sendDataToDB()   //CONNECTING WITH MYSQL
+ {
+   if (client.connect(server, 80)) {
+    Serial.println("connected");
+    temperatureData = dht.readTemperature();
+    humidityData = dht.readHumidity();
+    photovalue = analogRead(pResistor);
+    // Make a HTTP request:
+    dataToAddDBreview = (temperaturePostName+temperatureData+humidityPostName+humidityData+lightPostName+photovalue+co2PostName+gasSensor.getPPM());
+    
+    client.println("POST /MMS/MmsSensorsData.php HTTP/1.1");
+    client.println("Host: 192.168.2.100");
+    client.println("Content-Type: application/x-www-form-urlencoded");
+    client.print("Content-Length: ");
+    client.println(dataToAddDBreview.length());
+    client.println();
+    client.print(dataToAddDBreview);
+    Serial.print(dataToAddDBreview);
+
+    client.readStringUntil('\r');
+    client.readStringUntil('\r');
+    client.readStringUntil('\r');
+    client.readStringUntil('\r');
+    client.readStringUntil('\r');
+    client.readStringUntil('\r');
+    // client.readStringUntil('\r');
+    // client.readStringUntil('\r');
+    // client.readStringUntil('\r');
+    // client.readStringUntil('\r');
+    // client.readStringUntil('\r');
+    
+    String temperatureSensorVal = client.readStringUntil('=');
+    // Serial.println(temperatureSensorVal.length());
+    String templimitval = client.readStringUntil('=');
+    temperaturelimitval = templimitval.toDouble();
+    // Serial.println(temperaturelimitval);
+    String tempmaxval = client.readStringUntil('=');
+    temperaturemaxval = tempmaxval.toDouble();
+    // Serial.println(temperaturemaxval);
+
+    String tempstatusval = client.readStringUntil('=');
+    temperaturestatusval = tempstatusval.toInt();
+
+    String humiditySensorVal = client.readStringUntil('=');
+    String humlimitval = client.readStringUntil('=');
+    humidityLimitval = humlimitval.toDouble();
+    String hummaxval = client.readStringUntil('=');
+    humidityMaxval = hummaxval.toDouble();
+    String humstatusval = client.readStringUntil('=');
+    humidityStatusval = humstatusval.toInt();
+
+    String lightSensorVal = client.readStringUntil('=');
+    String lightlimitval = client.readStringUntil('=');
+    lightLimitval = lightlimitval.toDouble();
+    String lightmaxval = client.readStringUntil('=');
+    lightMaxval = lightmaxval.toDouble();
+    String lightstatusval = client.readStringUntil('=');
+    lightStatusval = lightstatusval.toInt();
+
+    String co2SensorVal = client.readStringUntil('=');
+    String co2Limitval = client.readStringUntil('=');
+    co2limitval = co2Limitval.toDouble();
+    String co2Maxval = client.readStringUntil('=');
+    co2maxval = co2Maxval.toDouble();
+    String co2Statusval = client.readStringUntil('=');
+    co2statusval = co2Statusval.toInt();
+
+    if(temperatureSensorVal.length()==21){
+      if(temperaturestatusval==0){
+        Serial.println("Sensor is OFF");
+      }else if(temperaturestatusval==1){
+        temperatureAndHumiditySensor();
+      }
+    }if(humiditySensorVal.length()==15){
+      if(humidityStatusval==0){
+        Serial.println("Sensor is OFF");
+      }else if(humidityStatusval==1){
+        humiditySensors();
+      }
+    }if(lightSensorVal.length()==12){
+      if(lightStatusval==0){
+        Serial.println("Sensor is OFF");
+      }else if(lightStatusval==1){
+        lightSensor();
+      }
+    }
+    if(co2SensorVal.length()==10){
+      if(co2statusval==0){
+        Serial.println("Sensor is OFF");
+      }else if(co2statusval==1){
+        co2Sensor();
+      }
+    }
+
+    client.stop();
+    
+  } else {
+    // if you didn't get a connection to the server:
+    Serial.println("connection failed");
+  }
+ }
+
+ void temperatureAndHumiditySensor(){ 
+  Serial.println();
+
+  if(temperatureData<temperaturelimitval){
+    Serial.print("LOW TEMPERATURE");
+    Serial.println(temperatureData);
+    digitalWrite(relay, LOW); 
+  }else if(temperatureData>temperaturemaxval){
+    Serial.print("HIGH TEMPERATURE");
+    Serial.println(temperatureData);
+    digitalWrite(relay, HIGH); 
+  }else{ 
+    Serial.print("GOOD TEMPERATURE");
+    Serial.println(temperatureData);
+    digitalWrite(relay, LOW);
+  }
+ }
+
+ void humiditySensors(){
+  if(humidityData<humidityLimitval){
+    Serial.print("LOW HUMIDITY");
+    Serial.println(humidityData);
+  }else if(humidityData>humidityMaxval){
+    Serial.print("HIGH HUMIDITY");
+    Serial.println(humidityData);
+  }else{
+    Serial.print("GOOD HUMIDITY");
+    Serial.println(humidityData);
+  }
+ }
+
+ void soilMoistureSensor(){
+   soil_sensorValue = analogRead(soil_sensorPin); 
+   Serial.print("Soil Moisture Value : ");
+   Serial.println(soil_sensorValue);
+   
+  //  if (soil_sensorValue>limit) {
+  //  digitalWrite(8, HIGH); 
+  //  }
+  //  else {
+  //  digitalWrite(8, LOW); 
+  //  }
+ }
+
+ void lightSensor(){
+  if(photovalue<lightLimitval){
+    Serial.print("LOW LIGHT");
+    Serial.println(photovalue);
+    digitalWrite(relays, HIGH);
+  }else if(photovalue>lightMaxval){
+    Serial.print("HIGH LIGHT");
+    Serial.println(photovalue);
+    digitalWrite(relays, LOW);
+  }else{
+    Serial.print("GOOD LIGHT");
+    Serial.println(photovalue);
+    digitalWrite(relays, LOW);
+  }
+ }
+
+ 
+void co2Sensor(){
+  //gas sensor
+   co2amount = gasSensor.getPPM();
+//   Serial.print ("ppm: ");
+//   Serial.println (co2amount);
+//   //end gas sensor
+}

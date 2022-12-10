@@ -1,4 +1,4 @@
-import fetch from "../modules/fetch.js";
+import fetch from "../modules/NeustTeamOneApi.js";
 /**
  *-----------------------------------------------
  * @param Model entity.name
@@ -13,13 +13,13 @@ import fetch from "../modules/fetch.js";
  * Note : Update if necessary only
  */
 
- let evnt;
- if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-     evnt = "touchstart";
-     // console.log("asd");
- }else{
-     evnt = "click";
- }
+let evnt;
+if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+    evnt = "touchstart";
+    // console.log("asd");
+}else{
+    evnt = "click";
+}
 
 $("body").on(evnt, ".btn-view", async (e) =>
     state.view($(e.currentTarget).data("index"))
@@ -38,7 +38,7 @@ $("#searchData").keyup(function(){
 
     // Loop through all table rows, and hide those who don't match the search query
     for (i = 0; i < tr.length; i++) {
-        td = tr[i].getElementsByTagName("td")[1];
+        td = tr[i].getElementsByTagName("td")[2];
         if (td) {
         txtValue = td.textContent || td.innerText;
         if (txtValue.toUpperCase().indexOf(filter) > -1) {
@@ -50,12 +50,11 @@ $("#searchData").keyup(function(){
     }
 });
 
-
 const state = {
     /* [Table] */
     entity: {
-        name: "history",
-        attributes: ["configuration_name", "datetimeval"],
+        name: "users/deleted",
+        attributes: ["roleName", "fullName", "address", "statusName", "username"],
         actions: {
             recover: ["fas fa-undo-alt", "recover", "success"],
             view: ["fa fa-eye", "View", "info"],
@@ -75,17 +74,26 @@ const state = {
     btnDelete: null,
     /* [initialized] */
     init: () => {
+        // Attach listeners
+        // state.btnKey.addEventListener("keyup", state.ask);
+        // state.btnKey.disabled = false;
+        // state.btnLook.addEventListener("click", state.ask);
+        // state.btnLook.disabled = false;
+        state.btnNew.addEventListener("click", state.create);
+        state.btnNew.disabled = false;
+
+        // fetch.option_list('user', 'display_name');
+
         state.ask();
     },
     /* [ACTIONS] */
     ask: async () => {
         state.models = await fetch.translate(state.entity);
-        // console.log(state.models);
-        if(state.models.length==0){
-            $('#table-main').append('<tr><td colspan="5"><center>NO AVAILABLE DATA<center></td></tr>');
-        }
         if (state.models) {
             state.models.forEach((model) => fetch.writer(state.entity, model));
+        }
+        if(state.models.length==0){
+            $('#table-mains').append('<tr><td colspan="7"><center>NO AVAILABLE DATA<center></td></tr>');
         }
     },
     view: (i) => {

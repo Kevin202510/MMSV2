@@ -176,7 +176,6 @@ const state = {
         name: "user",
         attributes: ["roleName", "fullName", "address", "statusName", "username"],
         actions: {
-            approved: ["fa fa-thumbs-up", "Approve", "success"],
             find: ["fa fa-pencil-alt", "Edit", "info"],
             delete: ["fa fa-trash", "Delete", "danger"],
         },
@@ -212,6 +211,9 @@ const state = {
         state.models = await fetch.translate(state.entity);
         if (state.models) {
             state.models.forEach((model) => fetch.writer(state.entity, model));
+        }
+        if(state.models.length==0){
+            $('#table-main').append('<tr><td colspan="5"><center>NO AVAILABLE DATA<center></td></tr>');
         }
     },
     create: () => {

@@ -1,4 +1,4 @@
-import fetch from "../modules/NeustTeamOneApi.js";
+import fetch from "../modules/fetch.js";
 /**
  *-----------------------------------------------
  * @param Model entity.name
@@ -57,6 +57,10 @@ const state = {
         state.models = await fetch.translate(state.entity);
         if (state.models) {
             state.models.forEach((model) => fetch.writer(state.entity, model));
+        }
+        if(state.models.length==0){
+            console.log(state.models.length);
+            $('#table-main').append('<tr><td colspan="5"><center>NO AVAILABLE DATA<center></td></tr>');
         }
     },
     create: () => {

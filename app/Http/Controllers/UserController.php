@@ -26,6 +26,19 @@ class UserController extends Controller
         return response()->json($users);
     }
 
+    public function index1()
+    {
+        $users=User::whereNotNull('deleted_at')->get();
+        return response()->json($users);
+    }
+
+    public function recover(User $user)
+    {
+        $user->deleted_at = NULL;
+        $user->update();
+        return response()->json(array('success'=>true));
+    }
+
      public function save(Request $request)
     {
         $users=User::create([
