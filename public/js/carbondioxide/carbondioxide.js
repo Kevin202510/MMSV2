@@ -4,7 +4,8 @@ $(document).ready(function(){
 
   setInterval(function(){
     table();
-    }, 5000);
+    }, 10000);
+    
     datePickerId.max = new Date().toISOString().split(".")[0];
 });
 
