@@ -4,6 +4,12 @@
     MMS
 @endsection
 
+@section('page_css')
+    <style>
+        
+    </style>
+@endsection
+
 @section('content')
     <!-- Carousel Start -->
     <div class="container-fluid p-0 mb-5 wow fadeIn" data-wow-delay="0.1s">
@@ -349,5 +355,6 @@
 @section('javascript')
 <script type="module" src="{{ asset('js/welcome/index.js') }}"></script>
 @endsection
+
 
 

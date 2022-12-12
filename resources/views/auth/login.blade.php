@@ -4,6 +4,12 @@
     MMS
 @endsection
 
+@section('page_css')
+    <style>
+        
+    </style>
+@endsection
+
 
 @section('content')
 
