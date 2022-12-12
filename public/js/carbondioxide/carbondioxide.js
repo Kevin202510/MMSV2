@@ -13,6 +13,7 @@ $("body").on("click", ".btn-generate", async (e) =>
     $("#generateReport").modal("show")
 );
 
+// datePickerId.max = new Date().toISOString().split(".")[0];
 $("#datePickerId").focusout(function(){
   
   console.log($("#datePickerId").val());

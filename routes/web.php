@@ -25,9 +25,7 @@ use App\Http\Controllers\GlobalController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', function () { return view('welcome'); })->name('noted');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
@@ -59,7 +57,7 @@ Route::middleware('admin')->group(function () {
     Route::get('/our_backup_database', [GlobalController::class,'our_backup_database'])->name('our_backup_database');
     Route::get('/users', function () { return view('users.index'); })->name('Users')->middleware('auth');
     Route::get('/roles', function () { return view('roles.index'); })->name('Roles')->middleware('auth');
-    Route::get('/export', [UserController::class,'export'])->name('Exports')->middleware('auth');
+    Route::get('/export', [UserController::class,'export'])->name('Export')->middleware('auth');
     
     // API's
 
@@ -133,10 +131,10 @@ Route::middleware('employeeOrAdmin')->group(function () {
     Route::get('/carbondioxide', function () { return view('carbondioxide.index'); })->name('CarbonDioxide')->middleware('auth');
     Route::get('/soil', function () { return view('soil.index'); })->name('SoilMoisture')->middleware('auth');
     Route::get('/water', function () { return view('water.index'); })->name('WaterLevel')->middleware('auth');
-    Route::get('/export-temperature/{tempgeneratedata}', [TemperatureController::class,'export'])->name('Exportss')->middleware('auth');
-    Route::get('/export-humidity', [HumidityController::class,'export'])->name('Exportsss')->middleware('auth');
-    Route::get('/export-carbondioxide', [CarbonDioxideController::class,'export'])->name('Exportssss')->middleware('auth');
-    Route::get('/export-lights', [LightsController::class,'export'])->name('Exportsssss')->middleware('auth');
+    Route::get('/export-temperature/{tempgeneratedata}', [TemperatureController::class,'export'])->name('Export')->middleware('auth');
+    Route::get('/export-humidity', [HumidityController::class,'export'])->name('Export')->middleware('auth');
+    Route::get('/export-carbondioxide', [CarbonDioxideController::class,'export'])->name('Export')->middleware('auth');
+    Route::get('/export-lights', [LightsController::class,'export'])->name('Export')->middleware('auth');
     Route::get('/export-global', [GlobalController::class,'generateAllReports'])->name('GlobalExport')->middleware('auth');
     Route::get('/system-setting', function () { return view('SystemConfiguration.index'); })->name('System Setting')->middleware('auth');
 

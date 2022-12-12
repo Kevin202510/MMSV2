@@ -18,8 +18,15 @@
     <div class="container" > 
         <div class="row g-5 align-items-center">
             <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
-                <div class="position-relative overflow-hidden p-5 pe-0">
-                    <img class="img-fluid w-100" style="border-radius:20px" src="{{ asset('landingpageassets/img/oyster3.jpg') }}">
+                <div class="position-relative overflow-hidden p-5 pe-0 carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active" data-bs-interval="2000"><img class="img-fluid w-100" style="border-radius:20px" src="{{ asset('landingpageassets/img/oyster3.jpg') }}">
+                    </div>
+                    <div class="carousel-item" data-bs-interval="2500"><img class="img-fluid w-100" style="border-radius:20px" src="{{ asset('landingpageassets/img/oyster3.jpg') }}">
+                    </div>
+                    <div class="carousel-item" data-bs-interval="3000"><img class="img-fluid w-100" style="border-radius:20px" src="{{ asset('landingpageassets/img/oyster3.jpg') }}">
+                    </div>
+                </div>
                 </div>
             </div>
             <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
