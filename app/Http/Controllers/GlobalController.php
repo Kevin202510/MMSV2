@@ -29,11 +29,11 @@ class GlobalController extends Controller
             '--force' => true,
         ]);
   
-        $exitCode1 = Artisan::call('db:seed', [
-          '--force' => true,
-        ]);
+        // $exitCode1 = Artisan::call('db:seed', [
+        //   '--force' => true,
+        // ]);
         
-        return response()->json(array('success'=>true));
+        return response()->json($exitCode);
     }
 
     public function our_backup_database(){
