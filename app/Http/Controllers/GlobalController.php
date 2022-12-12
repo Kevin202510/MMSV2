@@ -25,13 +25,13 @@ class GlobalController extends Controller
     }
 
     public function resetDB(){
-        $exitCode = Artisan::call('migrate:fresh --seed', [
+        $exitCode = Artisan::call('migrate:fresh', [
             '--force' => true,
         ]);
   
-        // $exitCode1 = Artisan::call('db:seed', [
-        //   '--force' => true,
-        // ]);
+        $exitCode1 = Artisan::call('db:seed', [
+          '--force' => true,
+        ]);
         
         return response()->json(array('success'=>true));
     }
