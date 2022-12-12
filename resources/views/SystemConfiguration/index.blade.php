@@ -45,6 +45,18 @@
                   </div>
                 </div>
               </div>
+              <div class="col-lg-6">
+                <div class="card card-large-icons">
+                  <div class="card-icon bg-primary text-white">
+                  <i class="fas fa-arrow-alt-square-down"></i>
+                  </div>
+                  <div class="card-body">
+                    <h4>Generate All Monitoring Report</h4>
+                    <p>Search engine optimization settings, such as meta tags and social media.</p>
+                    <button type="button" id="globalgenerate" class="btn btn-primary btn-generate"> <i class="fas fa-arrow-alt-square-down"></i> Reset DB</button>
+                  </div>
+                </div>
+              </div>
           </div>
           <form action="{{ route('our_backup_database') }}" id="backupdb" method="get">
           </form>

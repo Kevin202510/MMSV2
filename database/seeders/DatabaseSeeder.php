@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
             LightsSeeder::class,
             RoleSeeder::class,
             SensorconfigurationSeeder::class,
-            // SoilmoisturesSeeder::class,
+            NotificationSeeder::class,
             TemperatureSeeder::class,
             UsersSeeder::class,
         ]);

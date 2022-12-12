@@ -29,6 +29,13 @@ class LightsController extends Controller
         return $lightsdata->download('lights-data.pdf');
     }
 
+    public function currentTemperature()
+    {
+        $lights=Lights::whereNull('deleted_at')
+                                ->orderBy('id', 'DESC')->limit(1)->get();
+        return response()->json($lights);
+    }
+
     public function index2()
     {
         $lights=Lights::whereNull('deleted_at')

@@ -24,7 +24,31 @@
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="w-100" src="{{ asset('landingpageassets/img/panglima.png') }}" alt="Image">
+                    <img class="w-100" src="{{ asset('landingpageassets/img/a3.png') }}" alt="Image">
+                    <div class="carousel-caption">
+                        <div class="container">
+                            <div class="row justify-content-start">
+                            <div class="col-lg-8">
+                                    <h1 style="margin-left:25px;" class="display-4 mb-5 animated slideInDown blink_me">Mushroom Monitoring System</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="w-100" src="{{ asset('landingpageassets/img/a4.png') }}" alt="Image">
+                    <div class="carousel-caption">
+                        <div class="container">
+                            <div class="row justify-content-start">
+                            <div class="col-lg-8">
+                                    <h1 style="margin-left:25px;" class="display-4 mb-5 animated slideInDown blink_me">Mushroom Monitoring System</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="w-100" src="{{ asset('landingpageassets/img/a2.png') }}" alt="Image">
                     <div class="carousel-caption">
                         <div class="container">
                             <div class="row justify-content-start">
@@ -70,7 +94,7 @@
             <div class="row g-5 align-items-center">
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
                     <div class="position-relative overflow-hidden p-5 pe-0">
-                        <video class="img-fluid w-100" src="{{ asset('video/vid2.mp4') }}" muted loop autoplay></video>
+                        <video class="img-fluid w-100" style="border-radius:50px;" src="{{ asset('video/vid2.mp4') }}" muted loop autoplay></video>
                         <!-- <img class="img-fluid w-100" src=" asset('landingpageassets/img/mushroomkoto.jpg') }}"> -->
                     </div>
                 </div>
@@ -99,7 +123,7 @@
                 </div>
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
                     <div class="position-relative overflow-hidden p-5 pe-0">
-                        <video class="img-fluid w-100" src="{{ asset('video/vid1.mp4') }}" muted loop autoplay></video>
+                        <video class="img-fluid w-100"  style="border-radius:50px;" src="{{ asset('video/vid1.mp4') }}" muted loop autoplay></video>
                         <!-- <img class="img-fluid w-100" src=" asset('landingpageassets/img/mushroomkoto.jpg') }}"> -->
                     </div>
                 </div>
@@ -109,40 +133,48 @@
     <!-- About End -->
 
     <!-- Feature Start -->
-    <!-- <div class="container-fluid my-5 py-6" style="background-color:#e1e4eb;">
+    <div class="container-fluid my-5 py-6" style="background-color:#e1e4eb;">
         <div class="container">
             <div class="section-header text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
-                <h1 class="display-5 mb-3">Our Features</h1>
-                <p>Tempor ut dolore lorem kasd vero ipsum sit eirmod sit. Ipsum diam justo sed rebum vero dolor duo.</p>
+                <h1 class="display-5 mb-3">Mushroom House Current Status</h1>
+                <!-- <p>Tempor ut dolore lorem kasd vero ipsum sit eirmod sit. Ipsum diam justo sed rebum vero dolor duo.</p> -->
             </div>
             <div class="row g-4">
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="bg-white text-center h-100 p-4 p-xl-5">
-                        <img class="img-fluid mb-4" src="{{ asset('landingpageassets/img/icon-1.png') }}" alt="">
-                        <h4 class="mb-3">Natural Process</h4>
-                        <p class="mb-4">Tempor ut dolore lorem kasd vero ipsum sit eirmod sit. Ipsum diam justo sed vero dolor duo.</p>
+                        <img class="img-fluid mb-4" src="{{ asset('landingpageassets/img/temperature.png') }}" alt="">
+                        <h6 class="mb-3">Temperature</h6>
+                        <p class="mb-4" id="tempval"></p>
                         
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
                     <div class="bg-white text-center h-100 p-4 p-xl-5">
-                        <img class="img-fluid mb-4" src="{{ asset('landingpageassets/img/icon-2.png') }}" alt="">
-                        <h4 class="mb-3">Organic Products</h4>
-                        <p class="mb-4">Tempor ut dolore lorem kasd vero ipsum sit eirmod sit. Ipsum diam justo sed vero dolor duo.</p>
+                        <img class="img-fluid mb-4" src="{{ asset('landingpageassets/img/humidity.png') }}" alt="">
+                        <h6 class="mb-3">Humidity</h6>
+                        <p class="mb-4" id="humidityval"></p>
                         
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
                     <div class="bg-white text-center h-100 p-4 p-xl-5">
-                        <img class="img-fluid mb-4" src="{{ asset('landingpageassets/img/icon-3.png') }}" alt="">
-                        <h4 class="mb-3">Biologically Safe</h4>
-                        <p class="mb-4">Tempor ut dolore lorem kasd vero ipsum sit eirmod sit. Ipsum diam justo sed vero dolor duo.</p>
+                        <img class="img-fluid mb-4" src="{{ asset('landingpageassets/img/lights.png') }}" alt="">
+                        <h6 class="mb-3">Lights</h6>
+                        <p class="mb-4" id="lightsval"></p>
+                        
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="bg-white text-center h-100 p-4 p-xl-5">
+                        <img class="img-fluid mb-4" src="{{ asset('landingpageassets/img/co2.png') }}" alt="">
+                        <h6 class="mb-3">Carbon Dioxide</h6>
+                        <p class="mb-4" id="co2val"></p>
                         
                     </div>
                 </div>
             </div>
         </div>
-    </div> -->
+    </div>
     <!-- Feature End -->
 
     <!-- Product Start -->

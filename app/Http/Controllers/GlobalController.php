@@ -4,9 +4,26 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
+use App\Models\Humidity;
+use App\Temperature;
+use App\Models\Carbondioxide;
+use App\Models\Lights;
+use PDF;
 
 class GlobalController extends Controller
 {
+    public function generateAllReports(Request $request){
+        $datefrom = date('Y-m-d H:i:s',(strtotime ( '-1 day' , strtotime ( $request->datef) ) ));
+        $dateto = date('Y-m-d H:i:s', strtotime($request->datet . ' +1 day'));
+        $temperature=Temperature::whereBetween('created_at',[$datefrom,$dateto])->orderBy('created_at', 'ASC')->get();
+        $humidity=Humidity::whereBetween('created_at',[$datefrom,$dateto])->orderBy('created_at', 'ASC')->get();
+        $carbondioxide=Carbondioxide::whereBetween('created_at',[$datefrom,$dateto])->orderBy('created_at', 'ASC')->get();
+        $lights=Lights::whereBetween('created_at',[$datefrom,$dateto])->orderBy('created_at', 'ASC')->get();
+        $temperaturedata = PDF::loadView('SystemConfiguration.generateAllReport',compact('temperature','humidity','carbondioxide','lights'));
+        return $temperaturedata->download('GeneratedMonitoringReport.pdf');
+        // return view('SystemConfiguration.generateAllReport');
+    }
+
     public function resetDB(){
         $exitCode = Artisan::call('migrate:fresh', [
             '--force' => true,

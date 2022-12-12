@@ -40,7 +40,7 @@
         </ul>
         </li> -->
         <li class="side-menus {{ Request::is('users*') ? 'active' : '' }}"><a class="nav-link" href="{{ route('Users') }}"><i class="fas fa-users"></i><span>Users</span></a></li>
-        <li class="side-menus {{ Request::is('notifications*') ? 'active' : '' }}"><a class="nav-link" href="{{ route('Notifications') }}"><i class="fas fa-bell-on"></i><span>Notifications</span></a></li>
+        <!-- <li class="side-menus {{ Request::is('notifications*') ? 'active' : '' }}"><a class="nav-link" href="{{ route('Notifications') }}"><i class="fas fa-bell-on"></i><span>Notifications</span></a></li> -->
         <!-- <li class="side-menus {{ Request::is('roles*') ? 'active' : '' }}"><a class="nav-link" href=" route('Roles') }}"><i class="fas fa-key"></i><span>Roles</span></a></li> -->
         <!-- <li><a class="nav-link" href="{{ route('Temperature') }}"><i class="far fa-square"></i> <span>Light Sensor</span></a></li>
         <li><a class="nav-link" href="{{ route('Temperature') }}"><i class="far fa-square"></i> <span>CO2 Sensor</span></a></li>
@@ -58,7 +58,7 @@
             <li><a class="nav-link" href="layout-top-navigation.html">Top Navigation</a></li>
         </ul>
         </li> -->
-        <li class="side-menus {{ Request::is('notifications*') ? 'active' : '' }}"><a class="nav-link" href="{{ route('Notifications') }}"><i class="fas fa-bell-on"></i><span>Notifications</span></a></li>
+        <!-- <li class="side-menus {{ Request::is('notifications*') ? 'active' : '' }}"><a class="nav-link" href="{{ route('Notifications') }}"><i class="fas fa-bell-on"></i><span>Notifications</span></a></li> -->
         <!-- <li class="side-menus {{ Request::is('roles*') ? 'active' : '' }}"><a class="nav-link" href=" route('Roles') }}"><i class="fas fa-key"></i><span>Roles</span></a></li> -->
         <!-- <li><a class="nav-link" href="{{ route('Temperature') }}"><i class="far fa-square"></i> <span>Light Sensor</span></a></li>
         <li><a class="nav-link" href="{{ route('Temperature') }}"><i class="far fa-square"></i> <span>CO2 Sensor</span></a></li>

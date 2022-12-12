@@ -27,6 +27,13 @@ class CarbonDioxideController extends Controller
         return response()->json($carbondioxide);
     }
 
+    public function currentTemperature()
+    {
+        $carbondioxide=Carbondioxide::whereNull('deleted_at')
+                                ->orderBy('id', 'DESC')->limit(1)->get();
+        return response()->json($carbondioxide);
+    }
+
     public function export(Request $request)
     {
         $datefrom = date('Y-m-d H:i:s',(strtotime ( '-1 day' , strtotime ( $request->datef) ) ));

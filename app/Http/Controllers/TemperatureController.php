@@ -28,6 +28,13 @@ class TemperatureController extends Controller
         return response()->json($temperature);
     }
 
+    public function currentTemperature()
+    {
+        $temperature=Temperature::whereNull('deleted_at')
+                                ->orderBy('id', 'DESC')->limit(1)->get();
+        return response()->json($temperature);
+    }
+
     /**
      * Show the form for creating a new resource.
      *

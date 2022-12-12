@@ -42,6 +42,14 @@ Route::prefix('/api/mushroomvar')->group(function()
     Route::get('/', [SensorsconfigurationController::class,'index']);
 });
 
+Route::prefix('/api/getCurrentStatus')->group(function() 
+{
+    Route::get('/temperature', [TemperatureController::class,'currentTemperature']);
+    Route::get('/humidity', [HumidityController::class,'currentTemperature']);
+    Route::get('/lights', [LightsController::class,'currentTemperature']);
+    Route::get('/co2', [CarbonDioxideController::class,'currentTemperature']);
+});
+
 Route::prefix('/api/sensorsconfigurationss')->group(function() 
 {
     Route::get('/', [SensorsconfigurationController::class,'index1']);
@@ -115,6 +123,7 @@ Route::middleware('admin')->group(function () {
 
 Route::middleware('employeeOrAdmin')->group(function () {
 
+    Route::get('/global', function () { return view('SystemConfiguration.generateAllReport'); })->middleware('auth');
     Route::get('/sensorsconfiguration', function () { return view('sensors_configuration.index'); })->name('Sensor Configuration')->middleware('auth');
     Route::get('/notifications', function () { return view('notifications.index'); })->name('Notifications')->middleware('auth');
     Route::get('/sensorsconfigurationhistory', function () { return view('sensors_configuration.history'); })->name('Sensor Configuration History')->middleware('auth');
@@ -128,6 +137,7 @@ Route::middleware('employeeOrAdmin')->group(function () {
     Route::get('/export-humidity', [HumidityController::class,'export'])->name('Export')->middleware('auth');
     Route::get('/export-carbondioxide', [CarbonDioxideController::class,'export'])->name('Export')->middleware('auth');
     Route::get('/export-lights', [LightsController::class,'export'])->name('Export')->middleware('auth');
+    Route::get('/export-global', [GlobalController::class,'generateAllReports'])->name('GlobalExport')->middleware('auth');
     Route::get('/system-setting', function () { return view('SystemConfiguration.index'); })->name('System Setting')->middleware('auth');
 
     Route::prefix('/api/system-configurations')->group(function() 
@@ -142,6 +152,10 @@ Route::middleware('employeeOrAdmin')->group(function () {
         Route::post('/save', [NotificationController::class,'save']);
     });
     
+    Route::prefix('/api/exportglobal')->group(function() 
+    {
+        Route::post('/generatereport', [GlobalController::class,'generateAllReports']);
+    });
     Route::prefix('/api/exporttemperature')->group(function() 
     {
         Route::post('/generatereport', [TemperatureController::class,'export']);

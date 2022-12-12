@@ -15,6 +15,7 @@ class CreateNotificationsTable extends Migration
     {
         Schema::create('notifications', function (Blueprint $table) {
             $table->id();
+            $table->integer("sensor_id");
             $table->string("notification_description");
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->string("status")->default(0);

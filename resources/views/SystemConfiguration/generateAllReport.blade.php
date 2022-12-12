@@ -5818,7 +5818,7 @@
                     Mushroom Monitoring System
                 </p>
             </div>
-        </div>
+        </div><br><br>
         <div class="card">
         <div class="card-header">
             <center>
@@ -5839,6 +5839,71 @@
                         @foreach($humidity as $temp)
                             <tr>
                                 <td>{{$temp->humidity}}</td>
+                                <td>{{$temp->statusName}}</td>
+                                <td>{{$temp->date}}</td>
+                                <td>{{$temp->time}}</td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+                <p style="float:right;">
+                    Mushroom Monitoring System
+                </p>
+            </div>
+        </div><br><br>
+        <div class="card">
+        <div class="card-header">
+            <center>
+                <h5 class="card-title" style="color:white;">Carbon Dioxides Monitoring Report</h5>
+            </center>
+        </div>
+            <div class="card-body">
+                <table  class="table table-success table-striped-columns">
+                    <thead>
+                        <tr>
+                            <th>Carbon Dioxide</th>
+                            <th>Status</th>
+                            <th>Date</th>
+                            <th>Time</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-main">
+                        @foreach($carbondioxide as $temp)
+                            <tr>
+                                <td>{{$temp->carbondioxideAmount}}</td>
+                                <td>{{$temp->statusName}}</td>
+                                <td>{{$temp->date}}</td>
+                                <td>{{$temp->time}}</td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+                <p style="float:right;">
+                    Mushroom Monitoring System
+                </p>
+            </div>
+        </div>
+        <br><br>
+        <div class="card">
+        <div class="card-header">
+            <center>
+                <h5 class="card-title" style="color:white;">Lights Monitoring Report</h5>
+            </center>
+        </div>
+            <div class="card-body">
+                <table  class="table table-success table-striped-columns">
+                    <thead>
+                        <tr>
+                            <th>Lights</th>
+                            <th>Status</th>
+                            <th>Date</th>
+                            <th>Time</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-main">
+                        @foreach($lights as $temp)
+                            <tr>
+                                <td>{{$temp->lightsAmount}}</td>
                                 <td>{{$temp->statusName}}</td>
                                 <td>{{$temp->date}}</td>
                                 <td>{{$temp->time}}</td>
