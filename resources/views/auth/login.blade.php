@@ -67,11 +67,9 @@
                             </div>
 
                             <div class="form-group justify-content-center">
-                                <center style="margin-top:10px;">
-                                    <button type="submit" class="btn btn-xl btn-block" style="border-radius:10px;background-color: #c37e4c; color: white; font-size: 15px;" tabindex="4">
-                                        Login
-                                    </button>
-                                </center>
+                                <div class="d-grid gap-2 col-6 mx-auto" style="margin-top:15px;">
+                                    <button type="submit" class="btn btn-xl btn-block" style="border-radius:10px;background-color: #c37e4c; color: white; font-size: 20px;" tabindex="4">Sign In</button>
+                                </div>
                             </div>
                         </form>
                     </div>
