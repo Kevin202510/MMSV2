@@ -14,13 +14,13 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
-            // CarbondioxidesSeeder::class,
-            // HumiditySeeder::class,
-            // LightsSeeder::class,
+            CarbondioxidesSeeder::class,
+            HumiditySeeder::class,
+            LightsSeeder::class,
             RoleSeeder::class,
             SensorconfigurationSeeder::class,
-            // NotificationSeeder::class,
-            // TemperatureSeeder::class,
+            NotificationSeeder::class,
+            TemperatureSeeder::class,
             UsersSeeder::class,
         ]);
     }

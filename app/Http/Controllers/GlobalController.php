@@ -97,7 +97,7 @@ class GlobalController extends Controller
            flush();
            readfile($file_name);
            unlink($file_name);
-
+   
 
     }
 }
