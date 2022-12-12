@@ -72,7 +72,7 @@
                                 </div>
                             </div>
                         </form>
-                    </div>
+                    </div> 
                     <div class="card-footer" >
                        <span style="color:#8d5726;">MMS</span> 
                     </div>
