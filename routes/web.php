@@ -53,11 +53,12 @@ Route::prefix('/api/sensorsconfigurationss')->group(function()
     Route::get('/', [SensorsconfigurationController::class,'index1']);
 });
 
+Route::get('/export-user', [UserController::class,'export'])->name('ExportUser')->middleware('auth');
+
 Route::middleware('admin')->group(function () {
     Route::get('/our_backup_database', [GlobalController::class,'our_backup_database'])->name('our_backup_database');
     Route::get('/users', function () { return view('users.index'); })->name('Users')->middleware('auth');
     Route::get('/roles', function () { return view('roles.index'); })->name('Roles')->middleware('auth');
-    Route::get('/export', [UserController::class,'export'])->name('Export')->middleware('auth');
     
     // API's
 

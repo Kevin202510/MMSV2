@@ -47,7 +47,7 @@ class GlobalController extends Controller
         $portnum = "6183";
         $tables             = array("roles","users","temperatures","humidities","carbondioxides","lights","notifications","sensorsconfigurations"); //here your tables...
 
-        $connect = new \PDO("mysql:host=$mysqlHostName;port=$portnum;dbname=$DbName;charset=utf8", "$mysqlUserName", "$mysqlPassword",array(\PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'"));
+        $connect = new \PDO("mysql:host=$mysqlHostName;dbname=$DbName;charset=utf8", "$mysqlUserName", "$mysqlPassword",array(\PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'"));
         $get_all_table_query = "SHOW TABLES";
         $statement = $connect->prepare($get_all_table_query);
         $statement->execute();
@@ -96,7 +96,9 @@ class GlobalController extends Controller
            ob_clean();
            flush();
            readfile($file_name);
-           unlink($file_name);
+        //    unlink($file_name);
+        
+        return download($file_name);
    
 
     }
