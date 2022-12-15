@@ -9,7 +9,7 @@
         private $mysqli='';
 
         public function __construct(){
-            $this->mysqli = new mysqli($this->servername,$this->username,$this->password,$this->dbname);
+            $this->mysqli = new mysqli($this->servername,$this->username,$this->password,$this->dbname,"6183");
         }
 
         public function insert($table,$para=array()){
