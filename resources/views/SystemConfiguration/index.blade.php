@@ -33,7 +33,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-lg-6">
+              <!-- <div class="col-lg-6">
                 <div class="card card-large-icons">
                   <div class="card-icon bg-primary text-white">
                   <i class="fas fa-arrow-alt-square-down"></i>
@@ -44,7 +44,7 @@
                     <button type="button" id="backUPDB" class="btn btn-primary"> <i class="fas fa-arrow-alt-square-down"></i> Reset DB</button>
                   </div>
                 </div>
-              </div>
+              </div> -->
               <div class="col-lg-6">
                 <div class="card card-large-icons">
                   <div class="card-icon bg-primary text-white">
@@ -53,7 +53,7 @@
                   <div class="card-body">
                     <h4>Generate All Monitoring Report</h4>
                     <p>Search engine optimization settings, such as meta tags and social media.</p>
-                    <button type="button" id="globalgenerate" class="btn btn-primary btn-generate"> <i class="fas fa-arrow-alt-square-down"></i> Reset DB</button>
+                    <button type="button" id="globalgenerate" class="btn btn-primary btn-generate"> <i class="fas fa-arrow-alt-square-down"></i> Generate Report</button>
                   </div>
                 </div>
               </div>

@@ -5819,38 +5819,6 @@
                 </p>
             </div>
         </div>
-        <div class="card">
-        <div class="card-header">
-            <center>
-                <h5 class="card-title" style="color:white;">Humidity Monitoring Report</h5>
-            </center>
-        </div>
-            <div class="card-body">
-                <table  class="table table-success table-striped-columns">
-                    <thead>
-                        <tr>
-                            <th>Humidity</th>
-                            <th>Status</th>
-                            <th>Date</th>
-                            <th>Time</th>
-                        </tr>
-                    </thead>
-                    <tbody id="table-main">
-                        @foreach($humidity as $temp)
-                            <tr>
-                                <td>{{$temp->humidity}}</td>
-                                <td>{{$temp->statusName}}</td>
-                                <td>{{$temp->date}}</td>
-                                <td>{{$temp->time}}</td>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-                <p style="float:right;">
-                    Mushroom Monitoring System
-                </p>
-            </div>
-        </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>

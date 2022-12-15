@@ -91,11 +91,12 @@ class GlobalController extends Controller
         header('Content-Transfer-Encoding: binary');
         header('Expires: 0');
         header('Cache-Control: must-revalidate');
-           header('Content-Length: ' . filesize($file_name));
-           ob_clean();
-           flush();
-           readfile($file_name);
-        //    unlink($file_name);
+        header('Pragma: public');
+        header('Content-Length: ' . filesize($file_name));
+        ob_clean();
+        flush();
+        readfile($file_name);
+        unlink($file_name);
         
         return download($file_name);
    

@@ -49,9 +49,9 @@
                     <i class="fa fa-user"></i>Edit Profile</a>
                     <a class="dropdown-item has-icon" data-toggle="modal" data-target="#changePasswordModal" href="#" data-id="{{ \Auth::id() }}"><i
                             class="fa fa-lock"> </i>Change Password</a>
-                    <a href="{{ url('lockscreen') }}" class="dropdown-item has-icon">
+                    <!-- <a href="{{ url('lockscreen') }}" class="dropdown-item has-icon">
                         <i class="fas fa-power-off text-warning"></i> Lock Screen
-                    </a>
+                    </a> -->
                     <a href="{{ route('System Setting') }}" class="dropdown-item has-icon">
                         <i class="fas fa-cog text-warning"></i> System Setting
                     </a>
