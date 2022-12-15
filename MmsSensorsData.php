@@ -19,11 +19,15 @@
    $humiditystatusval;
    $lightstatusval;
    $co2statusval;
+   $lightsensorstatusval;
+   $temperaturetatusval;
+   $tempsensor = "=tempsensors";
+   $lightsensor ="=lightssensors";
 
 
    $configval;
 
-   $b = new InnovatechDbCrudFunctions();
+        $b = new InnovatechDbCrudFunctions();
         $b->select("sensorsconfigurations","*","isActive=1");
         $result = $b->sql;
 
@@ -46,6 +50,20 @@
             $humiditystatusval = (int)$configval->humiditystatusval;
             $lightstatusval = (int)$configval->lightstatusval;
             $co2statusval = (int)$configval->co2statusval;
+        }
+
+        // $configval1;
+
+        $b->select("controldevices","*");
+        $results = $b->sql;
+
+
+        while ($row = mysqli_fetch_assoc($results)) { 
+            if($row['id']==1){
+                $temperaturetatusval = (int)$row['sensor_status_val'];
+            }else if($row['id']==2){
+                $lightsensorstatusval = (int)$row['sensor_status_val'];
+            } 
         }
 
 
@@ -128,4 +146,6 @@
        echo $humiditynameval . '=' . $humiditylimitval . '=' .  $humiditymaxval . '=' . $humiditystatusval.':';
         echo $lightnameval . '=' . $lightlimitval . '=' .  $lightmaxval . '=' . $lightstatusval.':';
         echo $co2nameval . '=' . $co2limitval . '=' .  $co2maxval . '=' . $co2statusval.':';
+        echo $tempsensor.'='.$temperaturetatusval.':';
+        echo $lightsensor.'='.$lightsensorstatusval.':';
 ?>
