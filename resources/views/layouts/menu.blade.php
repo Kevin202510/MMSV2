@@ -25,6 +25,7 @@
         <li class="menu-header">Sensors Settings</li>
         <li class="side-menus {{ Request::is('sensorsconfiguration') ? 'active' : '' }}"><a class="nav-link" href="{{ route('Sensor Configuration') }}"><i class="fas fa-cogs"></i><span>Sensors Configuration</span></a></li>
         <li class="side-menus {{ Request::is('sensorsconfigurationhistory') ? 'active' : '' }}"><a class="nav-link" href="{{ route('Sensor Configuration History') }}"><i class="fas fa-cogs"></i><span>Sensors Configuration History</span></a></li>
+        <li class="side-menus {{ Request::is('sensorcontrols') ? 'active' : '' }}"><a class="nav-link" href="{{ route('Sensor Controls') }}"><i class="fas fa-cogs"></i><span>Sensors Controls</span></a></li>
         <!-- <li class="side-menus {{ Request::is('soil*') ? 'active' : '' }}"><a class="nav-link" href=" route('SoilMoisture') }}"><i class="fas fa-dewpoint"></i><span>Soil Moisture Sensor</span></a></li> -->
         <!-- <li class="side-menus {{ Request::is('water*') ? 'active' : '' }}"><a class="nav-link" href="{{ route('WaterLevel') }}"><i class="fas fa-sprinkler"></i><span>Water Sprinkler Sensor</span></a></li> -->
         @if(\Illuminate\Support\Facades\Auth::user()->role_id==1 )

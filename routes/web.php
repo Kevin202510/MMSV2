@@ -13,6 +13,7 @@ use App\Http\Controllers\WaterlevelController;
 use App\Http\Controllers\CarbonDioxideController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\GlobalController;
+use App\Http\Controllers\SensorControlsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -123,6 +124,7 @@ Route::middleware('admin')->group(function () {
 Route::middleware('employeeOrAdmin')->group(function () {
 
     Route::get('/global', function () { return view('SystemConfiguration.generateAllReport'); })->middleware('auth');
+    Route::get('/controldevices', function () { return view('sensorcontrols.index'); })->name('Sensor Controls')->middleware('auth');
     Route::get('/sensorsconfiguration', function () { return view('sensors_configuration.index'); })->name('Sensor Configuration')->middleware('auth');
     Route::get('/notifications', function () { return view('notifications.index'); })->name('Notifications')->middleware('auth');
     Route::get('/sensorsconfigurationhistory', function () { return view('sensors_configuration.history'); })->name('Sensor Configuration History')->middleware('auth');
@@ -143,6 +145,13 @@ Route::middleware('employeeOrAdmin')->group(function () {
     {
         Route::get('/', [GlobalController::class,'index']);
         Route::post('/resetDB', [GlobalController::class,'resetDB']);
+    });
+
+    Route::prefix('/api/controldevices')->group(function() 
+    {
+        Route::get('/', [SensorControlsController::class,'index']);
+        Route::put('/{controldevices}/sprinklerchangestate', [SensorControlsController::class,'triggerSprinkler']);
+        Route::put('/{controldevices}/lightschangestate', [SensorControlsController::class,'triggerLights']);
     });
 
     Route::prefix('/api/notifications')->group(function() 

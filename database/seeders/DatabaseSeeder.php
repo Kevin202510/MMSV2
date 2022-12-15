@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
             NotificationSeeder::class,
             TemperatureSeeder::class,
             UsersSeeder::class,
+            SensorControlsSeeder::class,
         ]);
     }
 }
