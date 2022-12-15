@@ -1,10 +1,10 @@
 <?php 
     class InnovatechDbCrudFunctions{
         public $que;
-        private $servername='localhost';
+        private $servername='containers-us-west-138.railway.app';
         private $username='root';
-        private $password='';
-        private $dbname='mmsdb';
+        private $password='D88csbgT639pRpzgguo7';
+        private $dbname='railway';
         private $result=array();
         private $mysqli='';
 
