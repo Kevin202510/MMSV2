@@ -47,7 +47,8 @@ class TemperatureController extends Controller
         // dd($datefrom,$dateto);
         $temperature=Temperature::whereBetween('created_at',[$datefrom,$dateto])->orderBy('created_at', 'ASC')->get();
         $temperaturedata = PDF::loadView('temperature.exportTemperature',compact('temperature'));
-        return $temperaturedata->download('temperature-data.pdf');
+        // dd($temperaturedata);
+        return $temperaturedata->download('temperaturedatabol.pdf');
     }
 
     /**
