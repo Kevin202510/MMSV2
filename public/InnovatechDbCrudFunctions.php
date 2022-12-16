@@ -1,15 +1,15 @@
 <?php 
     class InnovatechDbCrudFunctions{
         public $que;
-        private $servername='containers-us-west-138.railway.app';
+        private $servername='localhost';
         private $username='root';
-        private $password='D88csbgT639pRpzgguo7';
-        private $dbname='railway';
+        private $password='';
+        private $dbname='mmsdb';
         private $result=array();
         private $mysqli='';
 
         public function __construct(){
-            $this->mysqli = new mysqli($this->servername,$this->username,$this->password,$this->dbname,"6183");
+            $this->mysqli = new mysqli($this->servername,$this->username,$this->password,$this->dbname);
         }
 
         public function insert($table,$para=array()){
