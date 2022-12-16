@@ -141,7 +141,8 @@ Route::middleware('employeeOrAdmin')->group(function () {
     Route::get('/export-global', [GlobalController::class,'generateAllReports'])->name('GlobalExport')->middleware('auth');
     Route::get('/system-setting', function () { return view('SystemConfiguration.index'); })->name('System Setting')->middleware('auth');
 
-    Route::prefix('/api/system-configurations')->group(function() 
+    Route::prefix('/api/system-configurations')->group(function()  
+    
     {
         Route::get('/', [GlobalController::class,'index']);
         Route::post('/resetDB', [GlobalController::class,'resetDB']);
