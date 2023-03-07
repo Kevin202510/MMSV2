@@ -108,9 +108,7 @@ function fetchTemperature(){
       success: function (data){
         temperatureLabel = [];
         temperatureData = [];
-
-        // alert(data[0].temperature);
-        
+      
         var newdata = data.reverse();
           $.each (newdata, function (bb) {
                 temperatureLabel.push(newdata[bb].temperature + "°C");
@@ -119,19 +117,30 @@ function fetchTemperature(){
                 if(data.length-1==bb){
                   // console.log(data[bb].status);
                   if(data[bb].status == 0){
-                    // alert("asd");
                     $("#tempstat").html('<div class="badge badge-danger">'+data[bb].statusName+'</div>');
-                    $("#temphomehead").addClass('bg-danger');
+                    // $("#temphomehead").addClass('bg-danger');
                     $("#status").val("Temperature Sensor Detect " + data[bb].statusName +" Having " + newdata[bb].temperature + "°C");
                     $("#sensorname").val("Temperature Sensor Alert Notification");
-                  //   $("#samplemessage").submit(function(e) {
-                  //     // e.preventDefault();
-                  //     alert("asd");
-                  // });
+
+                    setInterval(function () {
+                      $("#temphomehead").css("background-color", function () {
+                          this.switch = !this.switch
+                          return this.switch ? "red" : ""
+                      });
+                  }, 300)
+
                   }else if(data[bb].status == 1){
                     $("#tempstat").html('<div class="badge badge-success">'+data[bb].statusName+'</div>');
                   }else{
+                    // $("#temphomehead").addClass('bg-warning');
                     $("#tempstat").html('<div class="badge badge-warning">'+data[bb].statusName+'</div>');
+                  
+                    setInterval(function () {
+                      $("#temphomehead").css("background-color", function () {
+                          this.switch = !this.switch
+                          return this.switch ? "yellow" : ""
+                      });
+                  }, 300)
                   }
                 }
             });   
@@ -157,11 +166,25 @@ function fetchHumidity(){
           humidityData.push(newdata[bb].humidity);
           if(data.length-1==bb){
             if(data[bb].status == 0){
+              // $("#humidityhomehead").addClass('bg-danger');
+              setInterval(function () {
+                $("#humidityhomehead").css("background-color", function () {
+                    this.switch = !this.switch
+                    return this.switch ? "red" : ""
+                });
+            }, 300)
               $("#humiditystat").html('<div class="badge badge-danger">'+data[bb].statusName+'</div>');
             }else if(data[bb].status == 1){
               $("#humiditystat").html('<div class="badge badge-success">'+data[bb].statusName+'</div>');
             }else{
+              // $("#humidityhomehead").addClass('bg-warning');
               $("#humiditystat").html('<div class="badge badge-warning">'+data[bb].statusName+'</div>');
+              setInterval(function () {
+                $("#humidityhomehead").css("background-color", function () {
+                    this.switch = !this.switch
+                    return this.switch ? "yellow" : ""
+                });
+            }, 300)
             }
           }
           });    
@@ -170,35 +193,36 @@ function fetchHumidity(){
   })
 }
 
-function fetchSoilMoisture(){
-  $.ajax({
-    url: 'api/soil/getNewVal',
-    type: 'GET',
-    dataType: 'json',
-    success: function (data){
-      soilMoistureLabel = [];
-      soilMoistureData = [];
+// function fetchSoilMoisture(){
+//   $.ajax({
+//     url: 'api/soil/getNewVal',
+//     type: 'GET',
+//     dataType: 'json',
+//     success: function (data){
+//       soilMoistureLabel = [];
+//       soilMoistureData = [];
       
-      var newdata = data.reverse();
-        $.each (newdata, function (bb) {
-          soilMoistureLabel.push(newdata[bb].soilmoisture + " %");
-          soilMoistureData.push(newdata[bb].soilmoisture);
+//       var newdata = data.reverse();
+//         $.each (newdata, function (bb) {
+//           soilMoistureLabel.push(newdata[bb].soilmoisture + " %");
+//           soilMoistureData.push(newdata[bb].soilmoisture);
 
-          if(data.length-1==bb){
-            if(data[bb].status == 0){
-              $("#soilmoisturestat").html('<div class="badge badge-danger">'+data[bb].statusName+'</div>');
-            }else if(data[bb].status == 1){
-              $("#soilmoisturestat").html('<div class="badge badge-success">'+data[bb].statusName+'</div>');
-            }else{
-              $("#soilmoisturestat").html('<div class="badge badge-warning">'+data[bb].statusName+'</div>');
-            }
-          }
+//           if(data.length-1==bb){
+//             if(data[bb].status == 0){
+//               $("#humidityhomehead").addClass('bg-danger');
+//               $("#soilmoisturestat").html('<div class="badge badge-danger">'+data[bb].statusName+'</div>');
+//             }else if(data[bb].status == 1){
+//               $("#soilmoisturestat").html('<div class="badge badge-success">'+data[bb].statusName+'</div>');
+//             }else{
+//               $("#soilmoisturestat").html('<div class="badge badge-warning">'+data[bb].statusName+'</div>');
+//             }
+//           }
 
-          });    
-        showSoilMoistureChart();
-    }
-  })
-}
+//           });    
+//         showSoilMoistureChart();
+//     }
+//   })
+// }
 
 function fetchCarbonDioxide(){
   $.ajax({
@@ -216,10 +240,22 @@ function fetchCarbonDioxide(){
 
           if(data.length-1==bb){
             if(data[bb].status == 0){
+              setInterval(function () {
+                $("#co2homehead").css("background-color", function () {
+                    this.switch = !this.switch
+                    return this.switch ? "red" : ""
+                });
+            }, 300)
               $("#co2stat").html('<div class="badge badge-danger">'+data[bb].statusName+'</div>');
             }else if(data[bb].status == 1){
               $("#co2stat").html('<div class="badge badge-success">'+data[bb].statusName+'</div>');
             }else{
+              setInterval(function () {
+                $("#co2homehead").css("background-color", function () {
+                    this.switch = !this.switch
+                    return this.switch ? "yellow" : ""
+                });
+            }, 300)
               $("#co2stat").html('<div class="badge badge-warning">'+data[bb].statusName+'</div>');
             }
           }
@@ -247,10 +283,22 @@ function fetchLight(){
 
           if(data.length-1==bb){
             if(data[bb].status == 0){
+              setInterval(function () {
+                $("#lighthomehead").css("background-color", function () {
+                    this.switch = !this.switch
+                    return this.switch ? "red" : ""
+                });
+            }, 300)
               $("#lightstat").html('<div class="badge badge-danger">'+data[bb].statusName+'</div>');
             }else if(data[bb].status == 1){
               $("#lightstat").html('<div class="badge badge-success">'+data[bb].statusName+'</div>');
             }else{
+              setInterval(function () {
+                $("#lighthomehead").css("background-color", function () {
+                    this.switch = !this.switch
+                    return this.switch ? "yellow" : ""
+                });
+            }, 300)
               $("#lightstat").html('<div class="badge badge-warning">'+data[bb].statusName+'</div>');
             }
           }
