@@ -14,10 +14,14 @@ import fetch from "../modules/fetch.js";
  */
 
 let evnt;
-if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+if (
+    /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+        navigator.userAgent
+    )
+) {
     evnt = "touchstart";
     // console.log("asd");
-}else{
+} else {
     evnt = "click";
 }
 
@@ -27,11 +31,11 @@ $("body").on(evnt, ".btn-find", async (e) =>
 $("body").on(evnt, ".btn-delete", (e) =>
     state.destroy($(e.currentTarget).data("index"))
 );
-$("body").on(evnt, ".btn-approved", function(e){
+$("body").on(evnt, ".btn-approved", function (e) {
     updateStatusApprove($(e.currentTarget).data("id"));
 });
 
-$("#searchData").keyup(function(){
+$("#searchData").keyup(function () {
     var input, filter, table, tr, td, i, txtValue;
     input = document.getElementById("searchData");
     filter = input.value.toUpperCase();
@@ -42,23 +46,23 @@ $("#searchData").keyup(function(){
     for (i = 0; i < tr.length; i++) {
         td = tr[i].getElementsByTagName("td")[2];
         if (td) {
-        txtValue = td.textContent || td.innerText;
-        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-            tr[i].style.display = "";
-        } else {
-            tr[i].style.display = "none";
-        }
+            txtValue = td.textContent || td.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                tr[i].style.display = "";
+            } else {
+                tr[i].style.display = "none";
+            }
         }
     }
 });
 
-$("#uploadUsersData").click(function(event){
+$("#uploadUsersData").click(function (event) {
     event.preventDefault();
 
     var datas = $("#upload_usersdata")[0].files;
 
     var fd = new FormData();
-    fd.append('upload_usersdata',datas[0]);
+    fd.append("upload_usersdata", datas[0]);
 
     $.ajax({
         method: "POST",
@@ -66,10 +70,9 @@ $("#uploadUsersData").click(function(event){
         data: fd, // serializes the form's elements.
         dataType: "JSON",
         contentType: false,
-        cache:false,
-        processData:false,
-        success: function(data)
-        {
+        cache: false,
+        processData: false,
+        success: function (data) {
             swal.fire({
                 position: "top-end",
                 icon: "success",
@@ -78,12 +81,11 @@ $("#uploadUsersData").click(function(event){
                 timer: 1500,
                 footer: "<a href>CleverTech</a>",
             });
-            $('#uploadUsersDataModal').modal('toggle'); 
+            $("#uploadUsersDataModal").modal("toggle");
             state.ask();
-            
         },
         statusCode: {
-            500: function(xhr) {
+            500: function (xhr) {
                 swal.fire({
                     icon: "error",
                     title: "Oops...",
@@ -93,7 +95,7 @@ $("#uploadUsersData").click(function(event){
                     footer: "<a href>CleverTech</a>",
                 });
             },
-            404: function(xhr) {
+            404: function (xhr) {
                 swal.fire({
                     icon: "error",
                     title: "Oops...",
@@ -102,8 +104,8 @@ $("#uploadUsersData").click(function(event){
                     text: xhr.statusText,
                     footer: "<a href>CleverTech</a>",
                 });
-            }
-          }
+            },
+        },
 
         // error: function (xhr) {
         // var err = JSON.parse(xhr.responseText);
@@ -118,8 +120,7 @@ $("#uploadUsersData").click(function(event){
 //         }, 20000);
 // })
 
-
-function updateStatusApprove(id){
+function updateStatusApprove(id) {
     swal.fire({
         title: "Are you sure",
         text: "You Will Approve This User?",
@@ -128,37 +129,34 @@ function updateStatusApprove(id){
         confirmButtonColor: "#3085d6",
         cancelButtonColor: "#d33",
         confirmButtonText: "Yes, Approve it!",
-    }).then((result) => {  
-	/* Read more about isConfirmed, isDenied below */  
-    console.log(result);
-    if (result.value==true) {   
+    }).then((result) => {
+        /* Read more about isConfirmed, isDenied below */
+        console.log(result);
+        if (result.value == true) {
+            let stat = {
+                isApproved: 1,
+            };
 
-        let stat = {
-            isApproved:1,
-        };
-        
-        $.ajax({
-            type: "PUT",
-            url: "api/users/"+id+"/updatestatus",
-            data: stat, // serializes the form's elements.
-            dataType: "json",
-            encode: true,
-            success: function(data)
-            {
-                swal.fire({
-                    position: "top-end",
-                    icon: "success",
-                    title: "Your work has been saved",
-                    showConfirmButton: false,
-                    timer: 1500,
-                    footer: "<a href>CleverTech</a>",
-                });
-                state.ask();
-            }
-        });
-    }
-});
-
+            $.ajax({
+                type: "PUT",
+                url: "api/users/" + id + "/updatestatus",
+                data: stat, // serializes the form's elements.
+                dataType: "json",
+                encode: true,
+                success: function (data) {
+                    swal.fire({
+                        position: "top-end",
+                        icon: "success",
+                        title: "Your work has been saved",
+                        showConfirmButton: false,
+                        timer: 1500,
+                        footer: "<a href>CleverTech</a>",
+                    });
+                    state.ask();
+                },
+            });
+        }
+    });
 }
 // const togglePassword = document.querySelector("#togglePassword");
 // const password = document.querySelector("#password");
@@ -174,7 +172,13 @@ const state = {
     /* [Table] */
     entity: {
         name: "user",
-        attributes: ["roleName", "fullName", "address", "statusName", "username"],
+        attributes: [
+            "roleName",
+            "fullName",
+            "address",
+            "statusName",
+            "username",
+        ],
         actions: {
             find: ["fa fa-pencil-alt", "Edit", "info"],
             delete: ["fa fa-trash", "Delete", "danger"],
@@ -202,19 +206,20 @@ const state = {
         state.btnNew.addEventListener("click", state.create);
         state.btnNew.disabled = false;
 
-        fetch.option_list('user', 'display_name');
+        fetch.option_list("user", "display_name");
 
         state.ask();
     },
     /* [ACTIONS] */
     ask: async () => {
         state.models = await fetch.translate(state.entity);
-        if (state.models) {
-            state.models.forEach((model) => fetch.writer(state.entity, model));
-        }
-        if(state.models.length==0){
-            $('#table-main').append('<tr><td colspan="5"><center>NO AVAILABLE DATA<center></td></tr>');
-        }
+        console.log(state.models);
+        // if (state.models) {
+        //     state.models.forEach((model) => fetch.writer(state.entity, model));
+        // }
+        // if(state.models.length==0){
+        //     $('#table-main').append('<tr><td colspan="5"><center>NO AVAILABLE DATA<center></td></tr>');
+        // }
     },
     create: () => {
         state.btnEngrave.innerHTML = "Save";

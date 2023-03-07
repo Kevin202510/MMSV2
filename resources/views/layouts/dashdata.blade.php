@@ -5,7 +5,7 @@
     <div class="card-body">
     <div class="row">
 <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-    <div class="card card-statistic-1">
+    <div class="card card-statistic-1   bg-danger">
     <div class="card-icon" style="background-color: #faf564;">
         <i class="fas fa-temperature-high"></i>
     </div>

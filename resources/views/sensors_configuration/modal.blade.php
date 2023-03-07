@@ -99,7 +99,11 @@
                         </select>
                         </div>
                     </div>
-
+                    <div class="form-group col-md-8">
+                            <label for="exampleFormControlTextarea1">Description</label>
+                            <textarea class="form-control" id="description" name="description" style="height:100px;"></textarea>
+                        </div>
+<!-- 
                     <div class="form-row">
                         <div class="col-md-4 text-center"> 
                             <label for="ItemPixStr">
@@ -107,11 +111,8 @@
                             </label>
                             <input type="file" style="display:none;" id="ItemPixStr" name="ItemPixStr" value="prod.png">
                         </div>
-                        <div class="form-group col-md-8">
-                            <label for="exampleFormControlTextarea1">Description</label>
-                            <textarea class="form-control" id="description" name="description" style="height:100px;"></textarea>
-                        </div>
-                    </div>
+                        
+                    </div> -->
 
                     
                 </form>

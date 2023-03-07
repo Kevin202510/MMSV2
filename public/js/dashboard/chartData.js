@@ -119,7 +119,9 @@ function fetchTemperature(){
                 if(data.length-1==bb){
                   // console.log(data[bb].status);
                   if(data[bb].status == 0){
+                    // alert("asd");
                     $("#tempstat").html('<div class="badge badge-danger">'+data[bb].statusName+'</div>');
+                    $("#temphomehead").addClass('bg-danger');
                     $("#status").val("Temperature Sensor Detect " + data[bb].statusName +" Having " + newdata[bb].temperature + "°C");
                     $("#sensorname").val("Temperature Sensor Alert Notification");
                   //   $("#samplemessage").submit(function(e) {
